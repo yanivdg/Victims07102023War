@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ScraperService {
-  private baseUrl = 'http://localhost:3000'; // Replace with your backend URL
+  private baseUrl = 'https://yqsmgmgbyj.execute-api.us-west-1.amazonaws.com/default/WebScraberService'; // Replace with your backend URL
 
   constructor(private http: HttpClient) {}
 
