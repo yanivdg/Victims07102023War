@@ -1,0 +1,18 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home.component';
+import { DataService } from '../service/data.service';
+
+@NgModule({
+  imports: [
+    CommonModule, 
+    BrowserModule,
+    HttpClientModule,
+],
+  declarations: [HomeComponent],
+  providers: [DataService],
+
+})
+export class HomeModule { }

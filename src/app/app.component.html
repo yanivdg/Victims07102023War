@@ -9,6 +9,8 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
+      <div>
+        <div *ngIf="showContent; else content">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 982 239"
@@ -56,20 +58,21 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
-      <button (click)="myFunction()">Trigger Scraber</button>
-      <div *ngIf='isLoading; else elseBlock'>
-        <p>Please wait, loading...</p>
-      </div>
-      <ng-template #elseBlock>
-    <table>
-    <tr *ngFor="let row of data">
-      <td *ngFor="let column of row">
-        {{ column }}
-      </td>
-    </tr>
-  </table>
-</ng-template>
-    </div>
+      <button (click)='navigateToHome()'>Navigate to the Site of the 7.10.2023 victims War</button>
+        <!--<div *ngIf="isLoading; else content">-->
+          <!-- Show this when isLoading is true -->
+          <!--<<p>Please wait...</p>
+        </div>
+        <ng-template #content>
+          <div [innerHTML]="htmlContent"></div>
+        <table>
+          <tr *ngFor="let row of data">
+            <td *ngFor="let column of row">
+              {{ column }}
+            </td>
+          </tr>
+          </table> 
+        </ng-template> -->
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
@@ -164,11 +167,13 @@
       </div>
     </div>
   </div>
-</main>
-<div>
-  <!-- Other content -->
-  <router-outlet></router-outlet>
 </div>
+</div>
+    <ng-template #content>
+      <router-outlet></router-outlet>
+    </ng-template>
+  </div>
+</main>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->

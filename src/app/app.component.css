@@ -34,6 +34,32 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  table {
+    width: 100%; /* This will make the table take up all available space */
+    table-layout: auto; /* This allows the browser to determine the column widths based on cell content */
+    border-collapse: collapse; 
+  }
+  td, th {
+    border: 1px solid black; /* This adds a border to the table cells */
+    padding: 8px; /* This adds some space around the content in the table cells */
+  }
+
+  .war-victims-card__image-container,
+  .war-victims-card__content {
+    display: inline-block;
+    margin: 0 10px; /* Adjust margin as needed */
+    vertical-align: top; /* Align elements vertically */
+  }
+
+  .war-victims-card__image,
+  .war-victims-card__name,
+  .war-victims-card__details,
+  .war-victims-card__position,
+  .war-victims-card__text {
+    display: inline; /* Display elements inline */
+  }
+  
+
   h1 {
     font-size: 3.125rem;
     color: var(--gray-900);
@@ -49,15 +75,6 @@
   p {
     margin: 0;
     color: var(--gray-700);
-  }
-  table {
-    width: 100%; /* This will make the table take up all available space */
-    table-layout: auto; /* This allows the browser to determine the column widths based on cell content */
-    border-collapse: collapse; 
-  }
-  td, th {
-    border: 1px solid black; /* This adds a border to the table cells */
-    padding: 8px; /* This adds some space around the content in the table cells */
   }
   main {
     width: 100%;

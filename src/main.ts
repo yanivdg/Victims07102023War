@@ -1,8 +1,9 @@
 //import { bootstrapApplication } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { appConfig } from './app/app.config';
+//import { appConfig } from './app/app.config';
 //import { AppComponent } from './app/app.component';
 import { AppModule } from './app/app.module';
+//import { HomeModule } from '/app/home/home.module'
 
 //bootstrapApplication(AppComponent, appConfig)
 platformBrowserDynamic().bootstrapModule(AppModule)
@@ -11,4 +12,3 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   
   
   
-
