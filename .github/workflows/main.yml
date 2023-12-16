@@ -35,7 +35,7 @@ jobs:
           publish_branch: gh-pages
           user_name: GitHub Actions
           user_email: actions@users.noreply.github.com
-
+              
       - name: Get and Display GitHub Pages URL
         run: |
           site_url=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
