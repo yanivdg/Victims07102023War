@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Modify this to match your branch name
-  workflow_dispatch:  # Allow manual triggering
+      - main  # Trigger on push to main branch
 
 jobs:
   deploy:
@@ -13,6 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Copy files to gh-pages branch
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git checkout -b gh-pages origin/gh-pages || git checkout -b gh-pages
+          git merge main --no-edit
+          git push origin gh-pages
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
