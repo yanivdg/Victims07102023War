@@ -193,12 +193,19 @@ convertToTable(htmlString: string): string {
       const content = element.querySelector(this.NodeLevelList[2]);
       // Get the sort value
       const value = element.getAttribute('data-sort');
+      // Set a semi-transparent white background (e.g., 80% opacity)
+      content.style.backgroundColor = 'rgba(255, 255, 255, 0.8)'; // Adjust the last value for opacity
+      // Set text color to black for better visibility
+      content.style.color = 'red';
+      content.style.textAlign = 'right'; // Align text to the right
       // Add the sort value to the options set
       content.style.backgroundImage = this.codeTranslateDictionary[value.trim()][PropertyValue];
       content.style.backgroundSize = 'cover';
       content.style.width = '100%';
       content.style.height= '300px'; /* Set the height of the container */
       content.style.backgroundPosition = 'center'; /* Center the background image */
+      // Add a text shadow to simulate blood droplets effect
+      content.style.textShadow = '0 0 5px #800'; // Adjust the color and blur radius as needed
     });
     this.elements = this.CastElementsToString(Array.from(elements));
   }
