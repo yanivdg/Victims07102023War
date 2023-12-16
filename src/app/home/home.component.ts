@@ -172,15 +172,6 @@ convertToTable(htmlString: string): string {
   // Return the outer HTML of the table
   return table.outerHTML;
 }
-/*
-  // Function to add a property to an element
-  (elementAttribute: string, propertyName: string, propertyValue: any) {
-    const element = elementAttribute.find(elem => elem.id === elementId);
-    if (element) {
-      element[propertyName] = propertyValue;
-    }
-  }
-*/
 
   addPropertyToElement(htmlString: string,PropertyName:string,PropertyValue:string): void {
     // Create a new DOM parser
