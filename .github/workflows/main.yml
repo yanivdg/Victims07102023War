@@ -25,7 +25,12 @@ jobs:
 
       - name: Merge changes from main into gh-pages
         run: |
-          git merge main --no-edit
+          git merge main --no-edit --allow-unrelated-histories
+
+      - name: Push changes to gh-pages branch
+        run: |
+          git push origin gh-pages
+
 
       - name: Push changes to gh-pages branch
         run: |
