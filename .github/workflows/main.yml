@@ -18,10 +18,7 @@ jobs:
 
       - name: Remove existing files in gh-pages branch
         run: git rm -rf .
-
-      - name: Copy files from main to gh-pages
-        run: git checkout main . && git commit -am "Copy files from main" && git push origin gh-pages
-
+        
       - name: Fetch and checkout gh-pages branch
         run: |
           git fetch origin gh-pages:gh-pages
