@@ -3,7 +3,7 @@ name: Angular Build and Serve
 on:
   push:
     branches:
-      - main  # Modify this to match your branch name
+      - main
 
 jobs:
   build:
@@ -13,10 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.x' # Update this to a version higher than 18.13
+      - name: Install Node.js 18.x
+        run: |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm install 18
+          node --version
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
