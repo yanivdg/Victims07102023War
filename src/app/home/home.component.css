@@ -25,7 +25,7 @@ iframe{
 
 .impotedhtml
 {
-  max-height: 300px; /* Set a fixed height for the table container */
+  max-height: 700px; /* Set a fixed height for the table container */
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ccc; /* Optional border for visualization */
 }

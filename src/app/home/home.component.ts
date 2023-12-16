@@ -94,7 +94,12 @@ appbuttonclicked()
       
     return filterValue.includes(this.searchQuery) && sort === this.selectedOption;
   });
-  this.filteredElements = this.convertToTable(this.CastElementsToString(filteringquery));
+
+  //
+  const records = this.addPropertyToElement(this.CastElementsToString(filteringquery),'background-image','image');
+  const tblRecords = this.convertToTable(records);
+  this.filteredElements = this.sanitizer.bypassSecurityTrustHtml(tblRecords);
+
   //count filtered list
   this.victimscount =filteringquery.length;;
 }
@@ -173,7 +178,8 @@ convertToTable(htmlString: string): string {
   return table.outerHTML;
 }
 
-  addPropertyToElement(htmlString: string,PropertyName:string,PropertyValue:string): void {
+
+  addPropertyToElement(htmlString: string,PropertyName:string,PropertyValue:string): string {
     // Create a new DOM parser
     const parser = new DOMParser();
     // Parse the HTML string
@@ -198,7 +204,7 @@ convertToTable(htmlString: string): string {
       // Add a text shadow to simulate blood droplets effect
       content.style.textShadow = '0 0 5px #800'; // Adjust the color and blur radius as needed
     });
-    this.elements = this.CastElementsToString(Array.from(elements));
+     return this.CastElementsToString(Array.from(elements));
   }
 
  scraber():void {
@@ -211,8 +217,7 @@ convertToTable(htmlString: string): string {
     switchMap((response: any) => {
       // Handle the response here
       const body = response.body;
-      this.elements = body[0].element;
-      this.addPropertyToElement(this.elements,'background-image','image');
+      this.elements = this.addPropertyToElement(body[0].element,'background-image','image');
       const records = this.convertToTable(this.elements);
       this.htmlContent = this.sanitizer.bypassSecurityTrustHtml(records);
       this.generateOptions(this.elements);
