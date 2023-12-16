@@ -54,7 +54,15 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/Victim07102023War/  # Replace 'your-angular-app-folder' with the actual folder name
-
           publish_branch: gh-pages
           user_name: GitHub Actions
           user_email: actions@users.noreply.github.com
+
+      - name: Get and Display GitHub Pages URL
+        run: |
+          site_url=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/$GITHUB_REPOSITORY/pages | \
+          jq -r '.html_url')
+          echo "Published URL: $site_url"
+
+
