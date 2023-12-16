@@ -44,20 +44,6 @@
     padding: 8px; /* This adds some space around the content in the table cells */
   }
 
-  .war-victims-card__image-container,
-  .war-victims-card__content {
-    display: inline-block;
-    margin: 0 10px; /* Adjust margin as needed */
-    vertical-align: top; /* Align elements vertically */
-  }
-
-  .war-victims-card__image,
-  .war-victims-card__name,
-  .war-victims-card__details,
-  .war-victims-card__position,
-  .war-victims-card__text {
-    display: inline; /* Display elements inline */
-  }
   
 
   h1 {
