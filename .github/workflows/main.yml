@@ -31,10 +31,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/Victim07102023War/  # Replace 'your-angular-app-folder' with the actual folder name
-          publish_branch: gh-pages
-          user_name: GitHub Actions
-          user_email: actions@users.noreply.github.com
+          publish_dir: ./dist/Victim07102023War/  # Replace 'YourAppName' with your app's name
               
       - name: Get and Display GitHub Pages URL
         run: |
@@ -51,3 +48,4 @@ jobs:
               publish_branch: gh-pages
               user_name: GitHub Actions
               user_email: actions@users.noreply.github.com
+  
