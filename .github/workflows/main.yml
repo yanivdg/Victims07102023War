@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Replace with your source branch name
+      - main
 
 jobs:
   build_and_deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Use a Node.js version that supports your Angular app
+          node-version: '18'
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
@@ -31,21 +31,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/Victim07102023War/  # Replace 'YourAppName' with your app's name
-              
-      - name: Get and Display GitHub Pages URL
-        run: |
-          site_url=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/$GITHUB_REPOSITORY/pages | \
-          jq -r '.html_url')
-          echo "Published URL: $site_url"
-          
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-              github_token: ${{ secrets.GITHUB_TOKEN }}
-              publish_dir: ./dist/Victim07102023War/  # Adjust the path to match your Angular app's build output
-              publish_branch: gh-pages
-              user_name: GitHub Actions
-              user_email: actions@users.noreply.github.com
-  
+          publish_dir: ./dist/Victim07102023War/
+          publish_branch: gh-pages
+          user_name: GitHub Actions
+          user_email: actions@users.noreply.github.com
