@@ -21,11 +21,8 @@ export class AppComponent implements OnInit {
 // Check if the URL does not contain 'localhost'
 if (!currentURL.includes('localhost')) {
   // If the URL does not contain 'localhost', find and click a button by its ID
-  const button = document.getElementById('NavigateToSite'); // Replace 'yourButtonId' with your actual button ID
-  if (button) {
-      button.click(); // Click the button if found
+  this.navigateToHome();
   }
-    }
   }
 
  navigateToHome(): void {
