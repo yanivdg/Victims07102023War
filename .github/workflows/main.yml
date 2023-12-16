@@ -1,25 +1,22 @@
-name: Angular Build and Serve
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # Modify this to match your branch name
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node.js 18.x
-        run: |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install 18
-          node --version
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Use a Node.js version that supports your Angular app
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
@@ -28,4 +25,13 @@ jobs:
         run: npm install
 
       - name: Build
-        run: ng build
+        run: ng build --prod --base-href="/Victims07102023War/"  # Replace 'repository' with your repository name
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/your-angular-app-folder  # Replace 'your-angular-app-folder' with the actual folder name
+          publish_branch: gh-pages
+          user_name: GitHub Actions
+          user_email: actions@users.noreply.github.com
