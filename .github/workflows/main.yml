@@ -1,17 +1,26 @@
-name: Deploy to GitHub Pages
+name: Copy Files to gh-pages
 
 on:
   push:
     branches:
-      - main  # Trigger on push to main branch
+      - main  # Replace with your source branch name
 
 jobs:
-  deploy:
+  copy_files:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Create orphaned gh-pages branch
+        run: git checkout --orphan gh-pages
+
+      - name: Remove existing files in gh-pages branch
+        run: git rm -rf .
+
+      - name: Copy files from main to gh-pages
+        run: git checkout main . && git commit -am "Copy files from main" && git push origin gh-pages
 
       - name: Set up Git
         run: |
