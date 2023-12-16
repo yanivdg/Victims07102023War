@@ -42,3 +42,12 @@ jobs:
           https://api.github.com/repos/$GITHUB_REPOSITORY/pages | \
           jq -r '.html_url')
           echo "Published URL: $site_url"
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./dist/Victim07102023War/  # Adjust the path to match your Angular app's build output
+              publish_branch: gh-pages
+              user_name: GitHub Actions
+              user_email: actions@users.noreply.github.com
