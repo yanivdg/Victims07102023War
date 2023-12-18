@@ -1,27 +1,39 @@
-from selenium import webdriver
-import webbrowser
+#from selenium import webdriver
+#import webbrowser
 from bs4 import BeautifulSoup
 import requests
 import os
+from playwright.sync_api import sync_playwright
+
+
+def get_dynamic_soup(url: str) -> BeautifulSoup:
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        page.goto(url)
+        soup = BeautifulSoup(page.content(), "html.parser")
+        browser.close()
+    return soup
+
 
 def not_full_width(tag):
      classes = tag.get('class')
      return classes is None or not any('full-width' in cls for cls in classes)
    
 # Initialize the Chrome driver
-driver = webdriver.Chrome()
+#driver = webdriver.Chrome()
 
 # URL of the website to scrape
 url = 'https://kidnappedfromisrael.n12.co.il/'  # Replace this with the URL of the website you want to scrape
 
 # Open the webpage
-driver.get(url)  # replace with your URL
+#driver.get(url)  # replace with your URL
 
 # Get the HTML of the webpage
-html = driver.page_source
+#html = driver.page_source
 
 # Now you can parse the HTML with BeautifulSoup
-soup = BeautifulSoup(html, 'html.parser')
+soup = get_dynamic_soup(url)#BeautifulSoup(html, 'html.parser')
 
 # Find the div with the specific class
 div = soup.find('div', class_='items-grid--c6reG')
@@ -67,5 +79,5 @@ with open('kidnapped.html', 'w', encoding='utf-8') as f:
         f.write(f'<p font-family="Arial" font_size = "30px">Total Kidnapped: {total_images}</p>\n')
         f.write(f'<p font-family="Arial" font_size = "30px">Kidnapped Murdered: {black_images}</p>\n')
         f.write(f'<p font-family="Arial" font_size = "30px">Kindnaped Alive: {yellow_images}</p>\n')
-file_path = "C:\\Users\\yaniv\\OneDrive\\Documents\\Python\\kidnapped.html"  # Replace this with the path to your local HTML file
-webbrowser.open("file://" + file_path)
+#file_path = "C:\\Users\\yaniv\\OneDrive\\Documents\\Python\\kidnapped.html"  # Replace this with the path to your local HTML file
+#webbrowser.open("file://" + file_path)
