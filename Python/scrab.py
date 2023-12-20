@@ -3,19 +3,9 @@ import zipfile
 import json
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
-import sys          
-python_version = sys.version
-print("Python Version:", python_version)
-import subprocess
-# Run the command 'pip show greenlet'
-result = subprocess.run(['pip', 'show', 'greenlet'], capture_output=True, text=True)
-# Print the output (stdout) of the command
-print(result.stdout)
-# Run the command 'pip list'
-result = subprocess.run(['pip', 'list'], capture_output=True, text=True)
-# Print the output (stdout) of the command
-print(result.stdout)
-
+import sys
+from flask import Flask
+       
 def get_dynamic_soup(url: str) -> BeautifulSoup:
      with sync_playwright() as p:
             browser = p.chromium.launch()
@@ -29,7 +19,9 @@ def not_full_width(tag):
      classes = tag.get('class')
      return classes is None or not any('full-width' in cls for cls in classes)
 
-def lambda_handler(event, context):
+app = Flask(__name__)
+@app.route('/api/BringThemHome', methods=['GET'])
+def  get_resource():
     try:
         # URL of the website to scrape
         url = 'https://kidnappedfromisrael.n12.co.il/'  # Replace this with the URL of the website you want to scrape
@@ -84,8 +76,5 @@ def lambda_handler(event, context):
             'body': json.dumps({'error': str(e)})
         }
 
-
 if __name__ == "__main__":
-    event = {}  # Replace with your event data
-    context = {}  # Replace with your context data
-    print(lambda_handler(event, context))
+    app.run(debug=True)  # This starts the Flask app in debug mode
