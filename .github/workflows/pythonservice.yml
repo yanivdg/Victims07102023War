@@ -1,0 +1,33 @@
+name: Python Service Workflow
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      python:
+        image: python:3.12  # You can change the version as needed
+        ports:
+          - 8000:8000  # Expose port for your service
+        options: --name python-service  # Give a name to your service
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12  # Set the Python version
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Run Python Service
+        run: |
+          python your_service_script.py  # Replace with your script name
+
+      # Add additional steps as needed (e.g., tests, additional scripts)
