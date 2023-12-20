@@ -25,12 +25,12 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          python3 install bs4
-          python3 install playwright
-          python3 install requests
+          python -m pip install bs4 playwright requests
+          # Install dependencies using 'python -m pip' command
 
       - name: Run Python Service
         run: |
-          python https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/scrab.py  # Replace with your script name
+          wget https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/scrab.py -O scrab.py
+          python scrab.py  # Run the downloaded script
 
       # Add additional steps as needed (e.g., tests, additional scripts)
