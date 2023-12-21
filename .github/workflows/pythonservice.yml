@@ -34,5 +34,3 @@ jobs:
         run: |
           wget https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/scrab.py -O scrab.py
           python scrab.py --mode console  # Run the downloaded script
-
-      # Add additional steps as needed (e.g., tests, additional scripts)
