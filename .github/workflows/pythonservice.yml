@@ -31,6 +31,6 @@ jobs:
       - name: Run Python Service
         run: |
           wget https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/scrab.py -O scrab.py
-          gunicorn -w 4 -b 0.0.0.0:8000 scrab:app  # Run the downloaded script
+          python scrab.py --mode console  # Run the downloaded script
 
       # Add additional steps as needed (e.g., tests, additional scripts)
