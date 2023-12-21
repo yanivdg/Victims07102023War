@@ -1,6 +1,8 @@
 name: Python Service Workflow
 
-on: [push, pull_request]
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour at the beginning of the hour
 
 jobs:
   build:
