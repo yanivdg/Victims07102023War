@@ -1,6 +1,7 @@
 import { Injectable  } from '@angular/core';
-import { HttpClient ,HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient ,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
+import { Observable,throwError  } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,5 +12,22 @@ export class DataService {
     const headers = new HttpHeaders().set('Content-Type', 'text/html');
     const  apiUrl = 'https://yqsmgmgbyj.execute-api.us-west-1.amazonaws.com/default/WebScraberService'; // Replace with your API URL
     return this.http.post<any>(apiUrl, body,{ headers: headers })
+  }
+  getRequest(url:string)
+  {
+    return this.http.get<any>(url).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Unknown error occurred';
+        if (error.error instanceof ErrorEvent) {
+          // Client-side error
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // Server-side error
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        console.error(errorMessage);
+        return throwError(errorMessage); // Throw an observable error
+      })
+    );
   }
 }

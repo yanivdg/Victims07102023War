@@ -32,13 +32,14 @@ export class HomeComponent implements OnInit{
   options:string[] = []; // Options for the combobox
   elements = ''; // Elements to filter
   filteredElements:SafeHtml = ''; // Filtered elements
+  documentHtmlContent:SafeHtml = '';
   elementsRetrieved: EventEmitter<string> = new EventEmitter<string>(); // EventEmitter to notify about retrieved elements
   codeTranslateDictionary: Record<string, any> = {
     a: {combo:'All',image:''},
     c: {combo:'Civilians',image:"url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/1280px-Flag_of_Israel.svg.png')"},
     s: {combo:'Soldiers',image:"url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Badge_of_the_Israeli_Defense_Forces_2022_version.svg/1024px-Badge_of_the_Israeli_Defense_Forces_2022_version.svg.png')"},
     p: {combo:'Police',image:"url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emblem_of_Israel_Police_Blue.svg/1024px-Emblem_of_Israel_Police_Blue.svg.png')"},
-    r: {combo:'Rescue',image:"url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Red_Crystal_with_Star.svg/1024px-Red_Crystal_with_Star.svg.png')"}
+    r: {combo:'Rescue',image:"url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Magen_David_Adom.svg/1200px-Magen_David_Adom.svg.png'),url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/FireDepIsrael.svg/1024px-FireDepIsrael.svg.png'"}
   };
 
   constructor(
@@ -50,6 +51,7 @@ export class HomeComponent implements OnInit{
 
  ngOnInit() 
  {
+    console.log("ngOnInit");
     this.scraber();
     this.elementsRetrieved.subscribe((elements:string) => {
     this.victimscount = this.CastStringToElements(elements).length;
@@ -212,7 +214,25 @@ convertToTable(htmlString: string): string {
   const urlvalue:string  = 'https://www.haaretz.co.il/news/2023-10-12/ty-article-magazine/0000018b-1367-dcc2-a99b-17779a0a0000';
   const classorid:string = '.war-victims-cards-container'; 
   const jsonbody ={url:urlvalue,classorid:classorid};
-
+ //
+ this.dataService.getRequest('https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html').pipe(
+  switchMap((response:any) =>
+  {
+    this.documentHtmlContent = this.sanitizer.bypassSecurityTrustHtml(response);
+    return new Observable(observer => {
+      observer.next(this.documentHtmlContent ); // Pass the modified response downstream
+      observer.complete(); // Complete the Observable
+    });
+  })
+  ).subscribe(
+    (response: any) => {
+      // Handle the response or perform subsequent operations if needed
+      this.elementsRetrieved.emit(response);
+    },
+    (error) => {
+      console.error('Error:', error);
+      // Handle errors
+    });
   this.dataService.postRequest(jsonbody).pipe(
     switchMap((response: any) => {
       // Handle the response here

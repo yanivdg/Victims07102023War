@@ -1,8 +1,10 @@
 
 <div *ngIf="isLoading; else content">
     <!-- Show this when isLoading is true -->
-    <p>Please wait...</p>
+    <p>Please wait while Page is loading...</p>
+    <div [innerHTML]="documentHtmlContent"></div>
   </div>
+  <div id="kidnapped"></div>
   <ng-template #content>
     <div id="yt-background">
         <iframe
@@ -45,7 +47,7 @@
         title="הכירו את &quot;ציר המוות&quot; בשדרות, בו נרצחו 13 גמלאים באוטובוס" 
         frameborder="0" 
         allow="autoplay; encrypted-media" 
-        allowfullscreen></iframe> 
+        allowfullscreen></iframe>
       </div> 
         <div id="video-overlay"></div>
         <div class="content">7-October-2023<br>Simhat Torah<br>Black Saturday </div>
