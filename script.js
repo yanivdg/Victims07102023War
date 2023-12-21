@@ -7,6 +7,20 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
     const parser = new DOMParser();
     const newHTMLDocument = parser.parseFromString(newHTML, 'text/html');
 
+     // Update HTML language attribute and add custom attribute
+    newHTMLDocument.documentElement.lang = 'en';
+    newHTMLDocument.documentElement.setAttribute('data-critters-container', '');
+
+    // Update charset in meta tag
+    const metaCharset = newHTMLDocument.querySelector('meta[charset]');
+    if (metaCharset) {
+      metaCharset.setAttribute('charset', 'utf-8');
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('charset', 'utf-8');
+      newHTMLDocument.head.appendChild(meta);
+    }
+    
     // Update href attribute for link elements
     newHTMLDocument.querySelectorAll('link[href]').forEach(link => {
       const href = link.getAttribute('href');
@@ -33,6 +47,10 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
     // Replace specific elements or append them to the existing document
     document.head.innerHTML = newHead;
     document.body.innerHTML = newBody;
+
+     // Add <app-root></app-root> to the body
+    const appRoot = document.createElement('app-root');
+    document.body.appendChild(appRoot);
   })
   .catch(error => {
     console.error('Error fetching or updating HTML:', error);
