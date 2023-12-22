@@ -18,14 +18,16 @@ def get_dynamic_soup(url: str) -> BeautifulSoup:
 def not_full_width(tag):
      classes = tag.get('class')
      return classes is None or not any('full-width' in cls for cls in classes)
+     
 def save_to_file(content):
-        # Extract the "body" from JSON content
-    html_body = content.get("body", "")  # Get the "body" value, defaulting to an empty string if not present
-      # Decode Unicode escape sequences in the JSON string
-    decoded_content = bytes(html_body, "utf-8").decode("unicode-escape")
-    # Save decoded content to an HTML file
-    with open('kidnapped.html', 'w', encoding='utf-8') as file:
-        file.write(decoded_content)
+     # Extract the "body" from JSON content
+     html_body = content.get("body", "")  # Get the "body" value, defaulting to an empty string if not present
+     # Decode Unicode escape sequences in the JSON string
+     decoded_content = bytes(html_body, "utf-8").decode("unicode-escape")
+     # Save decoded content to an HTML file
+     with open('kidnapped.html', 'w') as file:
+        file.write(html_body)
+         
 def insert_after_substring(original_string, search_string, insert_string):
     index = original_string.find(search_string)
     if index != -1:
@@ -50,7 +52,8 @@ def  get_resource():
         black_images = 0
         yellow_images = 0  
         # For demonstration, returning HTML content as JSON
-        html_content = '<style>\n'
+        html_content = '<html>\n'
+        html_content += '<style>\n'
         html_content += '.image-container {\n'
         html_content += '  display: flex;\n'
         html_content += '  flex-wrap: wrap;\n'
@@ -59,6 +62,7 @@ def  get_resource():
         html_content += '  margin: 10px;\n'
         html_content += '}\n'
         html_content += '</style>\n'
+        html_content += '<body>\n'
         html_content += '<div class="image-container">\n'
         for img in img_tags:
             total_images += 1
@@ -86,9 +90,11 @@ def  get_resource():
         totalall += f'<p font-family="Arial" font_size = "30px">Kidnapped Murdered: {black_images}</p>\n'
         totalall +=  f'<p font-family="Arial" font_size = "30px">Kidnapped Alive: {yellow_images}</p>\n'
         html_content = insert_after_substring(html_content, "</style>", totalall)
+        html_content += '</body><html>'
         return {
+            'header':{'Content-Type': 'text/html'},
             'statusCode': 200,
-            'body': json.dumps(html_content)   
+            'body': html_content   
         }
     except Exception as e:
         return {
