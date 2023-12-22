@@ -52,18 +52,12 @@ def  get_resource():
         black_images = 0
         yellow_images = 0  
         # For demonstration, returning HTML content as JSON
-        html_content = '<html>\n'
-        html_content += '<style>\n'
-        html_content += '.image-container {\n'
-        html_content += '  display: flex;\n'
-        html_content += '  flex-wrap: wrap;\n'
-        html_content += '}\n'
-        html_content += '.image-container img {\n'
-        html_content += '  margin: 10px;\n'
-        html_content += '}\n'
+
+        html_content = '<!DOCTYPE html>]\n<html>\n'
+        html_content += '<style>\n .image-container {\n  display: flex;\n   flex-wrap: wrap;\n }\n'
+        html_content += '.image-container img {\n  margin: 10px;\n}\n'
         html_content += '</style>\n'
-        html_content += '<body>\n'
-        html_content += '<div class="image-container">\n'
+        html_content += '<body>\n<div class="image-container">\n'
         for img in img_tags:
             total_images += 1
             src = img.get('src', '')
@@ -86,11 +80,11 @@ def  get_resource():
                 # Assuming f is your file object or file handler
                 html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename} {alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
-        totalall =   f'<p font-family="Arial" font_size = "30px">Total Kidnapped: {total_images}</p>\n'
-        totalall += f'<p font-family="Arial" font_size = "30px">Kidnapped Murdered: {black_images}</p>\n'
-        totalall +=  f'<p font-family="Arial" font_size = "30px">Kidnapped Alive: {yellow_images}</p>\n'
-        html_content = insert_after_substring(html_content, "</style>", totalall)
-        html_content += '</body><html>'
+        totalall =   f'<p font-family="Arial" style="font-size:2vw;color:red;">Total Kidnapped: {total_images}</p>\n'
+        totalall += f'<p font-family="Arial" style="font-size:2vw;color:black;">Kidnapped Murdered: {black_images}</p>\n'
+        totalall +=  f'<p font-family="Arial" style="font-size:2vw;color:#FFD700;">Kidnapped Alive: {yellow_images}</p>\n'
+        html_content = insert_after_substring(html_content, "<body>", totalall)
+        html_content += '</body></html>'
         return {
             'header':{'Content-Type': 'text/html'},
             'statusCode': 200,
