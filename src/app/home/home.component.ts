@@ -214,7 +214,17 @@ convertToTable(htmlString: string): string {
   const urlvalue:string  = 'https://www.haaretz.co.il/news/2023-10-12/ty-article-magazine/0000018b-1367-dcc2-a99b-17779a0a0000';
   const classorid:string = '.war-victims-cards-container'; 
   const jsonbody ={url:urlvalue,classorid:classorid};
- //
+ 
+  this.dataService.getData('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/kidnapped.html').subscribe(
+    (response) => {
+      this.documentHtmlContent = this.sanitizer.bypassSecurityTrustHtml(response);
+      console.log('Response:', response.text); // Handle the response here
+    },
+    (error) => {
+      console.error('Error:', error); // Handle errors
+    }
+  );
+ /*
  this.dataService.getRequest('https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html').pipe(
   switchMap((response:any) =>
   {
@@ -233,6 +243,7 @@ convertToTable(htmlString: string): string {
       console.error('Error:', error);
       // Handle errors
     });
+    */
   this.dataService.postRequest(jsonbody).pipe(
     switchMap((response: any) => {
       // Handle the response here

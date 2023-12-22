@@ -7,11 +7,14 @@ import { catchError } from 'rxjs/operators';
 })
 export class DataService {
   constructor(private http: HttpClient) {}
-  
+  headers = new HttpHeaders().set('Content-Type', 'text/html');
  postRequest(body:any): Observable<any> {
-    const headers = new HttpHeaders().set('Content-Type', 'text/html');
     const  apiUrl = 'https://yqsmgmgbyj.execute-api.us-west-1.amazonaws.com/default/WebScraberService'; // Replace with your API URL
-    return this.http.post<any>(apiUrl, body,{ headers: headers })
+    return this.http.post<any>(apiUrl, body,{ headers: this.headers })
+  }
+
+  getData(url: string): Observable<any> {
+    return this.http.get<any>(url, { headers: this.headers });
   }
   getRequest(url:string)
   {
