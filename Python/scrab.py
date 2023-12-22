@@ -53,7 +53,7 @@ def  get_resource():
         yellow_images = 0  
         # For demonstration, returning HTML content as JSON
 
-        html_content = '<!DOCTYPE html>\n<html>\n'
+        html_content = '<html>\n'
         html_content += '<style>\n .image-container {\n  display: flex;\n   flex-wrap: wrap;\n }\n'
         html_content += '.image-container img {\n  margin: 10px;\n}\n'
         html_content += '</style>\n'
