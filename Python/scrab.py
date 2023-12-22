@@ -25,7 +25,7 @@ def save_to_file(content):
      # Decode Unicode escape sequences in the JSON string
      decoded_content = bytes(html_body, "utf-8").decode("unicode-escape")
      # Save decoded content to an HTML file
-     with open('kidnapped.html', 'w') as file:
+     with open('kidnapped.html', 'w', encoding='utf-8') as file:
         file.write(html_body)
          
 def insert_after_substring(original_string, search_string, insert_string):
@@ -52,9 +52,7 @@ def  get_resource():
         black_images = 0
         yellow_images = 0  
         # For demonstration, returning HTML content as JSON
-
-        html_content = '<html>\n'
-        html_content += '<style>\n .image-container {\n  display: flex;\n   flex-wrap: wrap;\n }\n'
+        html_content = '<style>\n .image-container {\n  display: flex;\n   flex-wrap: wrap;\n }\n'
         html_content += '.image-container img {\n  margin: 10px;\n}\n'
         html_content += '</style>\n'
         html_content += '<body>\n<div class="image-container">\n'
@@ -84,7 +82,7 @@ def  get_resource():
         totalall += f'<p font-family="Arial" style="font-size:2vw;color:black;">Kidnapped Murdered: {black_images}</p>\n'
         totalall +=  f'<p font-family="Arial" style="font-size:2vw;color:#FFD700;">Kidnapped Alive: {yellow_images}</p>\n'
         html_content = insert_after_substring(html_content, "<body>", totalall)
-        html_content += '</body></html>'
+        html_content += '</body>'
         return {
             'header':{'Content-Type': 'text/html'},
             'statusCode': 200,
