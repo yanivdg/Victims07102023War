@@ -26,6 +26,13 @@ def save_to_file(content):
     # Save decoded content to an HTML file
     with open('kidnapped.html', 'w', encoding='utf-8') as file:
         file.write(decoded_content)
+def insert_after_substring(original_string, search_string, insert_string):
+    index = original_string.find(search_string)
+    if index != -1:
+        first_part = original_string[:index + len(search_string)]
+        second_part = original_string[index + len(search_string):]
+        return first_part + insert_string + second_part
+    return original_string  # If the search_string is not found, return the original string
 
 app = Flask(__name__)
 @app.route('/api/BringThemHome', methods=['GET'])
@@ -78,7 +85,7 @@ def  get_resource():
         totalall =   f'<p font-family="Arial" font_size = "30px">Total Kidnapped: {total_images}</p>\n'
         totalall += f'<p font-family="Arial" font_size = "30px">Kidnapped Murdered: {black_images}</p>\n'
         totalall +=  f'<p font-family="Arial" font_size = "30px">Kidnapped Alive: {yellow_images}</p>\n'
-        html_content = totalall + html_content
+        html_content = insert_after_substring(html_content, "</style>", totalall)
         return {
             'statusCode': 200,
             'body': json.dumps(html_content)   
