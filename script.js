@@ -43,31 +43,21 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
   // Manipulate specific elements before appending to the existing document
   const newHead = newHTMLDocument.head.innerHTML;
   const newBody = newHTMLDocument.body.innerHTML;
-
   /*************************/
-// Create a document fragment to hold the content
-const fragment = document.createDocumentFragment();
+  // Create a head element and set its content
+  const headElement = document.createElement('head');
+  headElement.innerHTML = newHead;
 
-// Create a temporary div element for head content
-const tempDivHead = document.createElement('div');
-tempDivHead.innerHTML = newHead;
+  // Create a body element and set its content
+  const bodyElement = document.createElement('body');
+  bodyElement.innerHTML = newBody;
 
-// Move the child nodes of the temporary div to the fragment
-while (tempDivHead.firstChild) {
-  fragment.appendChild(tempDivHead.firstChild);
-}
+  // Get the #content element
+  const contentElement = document.getElementById('content');
 
-// Create a temporary div element for body content
-const tempDivBody = document.createElement('div');
-tempDivBody.innerHTML = newBody;
-
-// Move the child nodes of the temporary div to the fragment
-while (tempDivBody.firstChild) {
-  fragment.appendChild(tempDivBody.firstChild);
-}
-
-// Append the fragment (head and body content) to the #content element
-document.getElementById('content').appendChild(fragment);
+  // Append head and body to the #content element
+  contentElement.appendChild(headElement);
+  contentElement.appendChild(bodyElement);
  /************************/
   })
   .catch(error => {
