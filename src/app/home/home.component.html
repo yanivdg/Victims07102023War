@@ -1,29 +1,27 @@
-
+<style>
+  /* app.component.css */
+ body {
+   zoom: 50%;
+ }
+ 
+ /* Media query for desktop devices */
+ @media (min-width: 768px) {
+   body {
+     zoom: 100%;
+   }
+ }
+   </style>
+     <body>
 <div *ngIf="isLoading; else content">
-  <style>
- /* app.component.css */
-body {
-  zoom: 50%;
-}
-
-/* Media query for desktop devices */
-@media (min-width: 768px) {
-  body {
-    zoom: 100%;
-  }
-}
-  </style>
     <!-- Show this when isLoading is true -->
     <p>Please wait while Page is loading...</p>
-    <body>
+
     <h1 style="font-size:3vw; color: red">BRING THEM HOME</h1>
     <div class="impotedhtml" style="border: 20px solid red; width: 1700px; height: 1080px;" >
         <div  [innerHTML]="documentHtmlContent"></div> 
       </div>
-    </body>
       </div>
   <ng-template #content>
-    <body>
     <div id="yt-background">
         <iframe
         src="https://www.youtube.com/embed/8FomPFXPmHs?mute=1&autoplay=1&controls=0&loop=1&playlist=8FomPFXPmHs"
@@ -83,5 +81,5 @@ body {
       <ng-template #filteredhtml>
         <div [innerHTML]="filteredElements" class="impotedhtml"></div>
       </ng-template>
-    </body>
     </ng-template> 
+  </body>
