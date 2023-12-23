@@ -75,7 +75,7 @@ def  get_resource():
                 filename = os.path.splitext(os.path.basename(src))[0]
                 html_content += f'<figure>\n<img src="{src}" alt="{alt}" style="{img["style"]}">\n'
                 font_family = "Arial, sans-serif"  # Change this to your desired font family
-                font_size = "10px"  # Change this to your desired font size
+                font_size = "20px"  # Change this to your desired font size
                 # Assuming f is your file object or file handler
                 html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename} {alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
