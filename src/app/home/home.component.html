@@ -4,9 +4,11 @@
     <p>Please wait while Page is loading...</p>
     <h1 style="font-size: 4rem; color: red">BRING THEM HOME</h1>
       <div class="image-wrapper">
-        <div class="image-container" [innerHTML]="documentHtmlContent"></div>
+      <div class="divcontainer">
+          <div class="divchild">
+        <div [innerHTML]="documentHtmlContent"></div>
       </div>
-    </div>
+      </div>
   </div>  
   <ng-template #content>
     <div id="yt-background">
