@@ -44,8 +44,31 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
   const newHead = newHTMLDocument.head.innerHTML;
   const newBody = newHTMLDocument.body.innerHTML;
 
-  // Append the manipulated content to the #content element
-  document.getElementById('content').innerHTML = newHead + newBody;
+  /*************************/
+// Create a document fragment to hold the content
+const fragment = document.createDocumentFragment();
+
+// Create a temporary div element for head content
+const tempDivHead = document.createElement('div');
+tempDivHead.innerHTML = newHead;
+
+// Move the child nodes of the temporary div to the fragment
+while (tempDivHead.firstChild) {
+  fragment.appendChild(tempDivHead.firstChild);
+}
+
+// Create a temporary div element for body content
+const tempDivBody = document.createElement('div');
+tempDivBody.innerHTML = newBody;
+
+// Move the child nodes of the temporary div to the fragment
+while (tempDivBody.firstChild) {
+  fragment.appendChild(tempDivBody.firstChild);
+}
+
+// Append the fragment (head and body content) to the #content element
+document.getElementById('content').appendChild(fragment);
+ /************************/
   })
   .catch(error => {
     console.error('Error fetching or updating HTML:', error);
