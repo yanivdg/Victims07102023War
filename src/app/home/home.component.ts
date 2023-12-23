@@ -215,15 +215,18 @@ convertToTable(htmlString: string): string {
   const classorid:string = '.war-victims-cards-container'; 
   const jsonbody ={url:urlvalue,classorid:classorid};
  
-  this.dataService.getData('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/kidnapped.html').subscribe(
-    (response) => {
-      this.documentHtmlContent = this.sanitizer.bypassSecurityTrustHtml(response);
-      console.log('Response:', response.text); // Handle the response here
+
+  this.dataService.getData('https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html')
+  .subscribe(
+    (data: string) => {
+      this.documentHtmlContent = this.sanitizer.bypassSecurityTrustHtml(data); ; // Assign fetched HTML content to the variable
+      console.log(this.htmlContent); // You can handle or display the HTML content here
     },
-    (error) => {
-      console.error('Error:', error); // Handle errors
+    error => {
+      console.error('Error fetching HTML content:', error);
     }
   );
+  
  /*
  this.dataService.getRequest('https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html').pipe(
   switchMap((response:any) =>

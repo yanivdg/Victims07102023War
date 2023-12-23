@@ -13,9 +13,10 @@ export class DataService {
     return this.http.post<any>(apiUrl, body,{ headers: this.headers })
   }
 
-  getData(url: string): Observable<any> {
-    return this.http.get<any>(url, { headers: this.headers });
+  getData(url: string): Observable<string> {
+    return this.http.get(url, { responseType: 'text' });
   }
+
   getRequest(url:string)
   {
     return this.http.get<any>(url).pipe(
