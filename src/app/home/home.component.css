@@ -88,12 +88,6 @@ iframe{
   border: 1px solid #ccc; /* Optional border for visualization */
 }
 
-.image-container {
-  width: 1920px; /* Set the container width */
-  height: 1080px; /* Set the container height */
-  border: 5px solid red; /* Red border around the container */
-  position: relative; /* Establishes a positioning context for absolutely positioned children */
-}
 
 .image-container .image-wrapper {
   position: absolute; /* Position the wrapper relative to the container */
@@ -105,10 +99,11 @@ iframe{
   flex-wrap: wrap;
   border: 5px solid blue; /* Blue border around the wrapper for visualization */
   box-sizing: border-box; /* Include border in width and height calculations */
+  overflow: scroll; /* Always show scrollbars */
 }
 
 .image-container .item {
-  width: 50px; /* Width of each image */
-  height: 50px; /* Height of each image */
+  width: 20px; /* Width of each image */
+  height: 20px; /* Height of each image */
   box-sizing: border-box; /* Include border in width and height calculations */
 }
