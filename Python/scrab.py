@@ -79,7 +79,7 @@ def  get_resource():
                 # Assuming f is your file object or file handler
                 html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename} {alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
-        totalall =   f'<p font-family="Arial" style="font-size:2vw;color:red;">Total Kidnapped: {total_images}</p>\n'
+        totalall =   f'<p font-family="Arial" style="font-size:2vw;color:red;">Kidnapped: {total_images}</p>\n'
         totalall += f'<p font-family="Arial" style="font-size:2vw;color:black;">Kidnapped Murdered: {black_images}</p>\n'
         totalall +=  f'<p font-family="Arial" style="font-size:2vw;color:#FFD700;">Kidnapped Alive: {yellow_images}</p>\n'
         html_content = insert_after_substring(html_content, "<body>", totalall)
