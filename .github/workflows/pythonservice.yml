@@ -38,5 +38,5 @@ jobs:
       - name: push kidnapped.html
         run: |
           git add kidnapped.html
-          git add commit -m "updating kiddnapped page list"
+          git commit -m "updating kiddnapped.html page list"
           git push origin main
