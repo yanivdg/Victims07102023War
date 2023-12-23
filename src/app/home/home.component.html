@@ -2,9 +2,13 @@
 <div *ngIf="isLoading; else content">
     <!-- Show this when isLoading is true -->
     <p>Please wait while Page is loading...</p>
-    <h1 style="font-size::5vw; color: red">BRING THEM HOME</h1>
-        <div class="divchild" [innerHTML]="documentHtmlContent"></div> 
-</div>
+    <h1 style="font-size:3vw; color: red">BRING THEM HOME</h1>
+    <div class="image-containerA">
+      <div class="image-wrapperA">
+        <div  [innerHTML]="documentHtmlContent"></div> 
+      </div>
+      </div>
+        </div>
   <ng-template #content>
     <div id="yt-background">
         <iframe
