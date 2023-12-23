@@ -40,11 +40,12 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
     const titleTag = newHTMLDocument.querySelector('title');
     titleTag.textContent = 'War Victims 07-Oct-2023 (ver.22122023_0119)';
 
-    // Manipulate specific elements before appending to the existing content element
-    const newContent = newHTMLDocument.getElementById('content').innerHTML;
+  // Manipulate specific elements before appending to the existing document
+  const newHead = newHTMLDocument.head.innerHTML;
+  const newBody = newHTMLDocument.body.innerHTML;
 
-    // Insert the modified content into the #content element
-    document.getElementById('content').innerHTML = newContent;
+  // Append the manipulated content to the #content element
+  document.getElementById('content').innerHTML = newHead + newBody;
   })
   .catch(error => {
     console.error('Error fetching or updating HTML:', error);
