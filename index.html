@@ -2,73 +2,13 @@
 
 <html data-critters-container="" lang="en">
 <head>
-<<<<<<< HEAD
 <meta charset="utf-8"/>
-<title>War victims 07-OCT-2023(ver.23122023_2305)</title>
+<title>War victims 07-OCT-2023(ver.23122023_2356)</title>
 <base href="/"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <link href="https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/styles-5INURTSO.css" rel="stylesheet"/></head>
 <body>
 <app-root></app-root>
-<script src="https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/polyfills-LZBJRJJE.js" type="module"></script><script src="https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/main-QW6J55B6.js" type="module"></script></body>
-=======
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-  <title>War Victims 07-OCT-2023(ver.23122023_1525)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head
-<body>
-<div id="content">
-    <!-- Content will be loaded here -->
-</div>
-<script>
-        const fullPath = 'https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/';
-
-        $.ajax({
-            url: 'https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/index.html',
-            type: 'GET',
-            success: function(res) {
-                const html = res.responseText;
-                const newHTMLDocument = $('<div>').html($.parseHTML(html));
-
-                // Update HTML language attribute and add custom attribute
-                newHTMLDocument.prop('lang', 'en');
-                newHTMLDocument.attr('data-critters-container', '');
-
-                // Update charset in meta tag
-                const metaCharset = newHTMLDocument.find('meta[charset]');
-                if (metaCharset.length) {
-                    metaCharset.attr('charset', 'utf-8');
-                } else {
-                    $('<meta>', {charset: 'utf-8'}).appendTo(newHTMLDocument);
-                }
-
-                // Update href attribute for link elements
-                newHTMLDocument.find('link[href]').each(function() {
-                    const href = $(this).attr('href');
-                    if (href) {
-                        $(this).attr('href', fullPath + href);
-                    }
-                });
-
-                // Update src attribute for script elements
-                newHTMLDocument.find('script[src]').each(function() {
-                    const src = $(this).attr('src');
-                    if (src) {
-                        $(this).attr('src', fullPath + src);
-                    }
-                });
-
-                const titleTag = newHTMLDocument.find('title');
-                titleTag.text('War Victims 07-Oct-2023 (ver.22122023_0119)');
-
-                // Append the manipulated HTML to the current document
-                $('body').append(newHTMLDocument.html());
-            }
-        });
-</script>
-</body>
->>>>>>> refs/remotes/origin/main
+<script src="https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/polyfills-LZBJRJJE.js" type="module"></script><script src="https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/main-C3RT4Y3H.js" type="module"></script></body>
 </html>
-  
