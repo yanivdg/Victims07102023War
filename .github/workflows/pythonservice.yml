@@ -34,3 +34,9 @@ jobs:
         run: |
           wget https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/scrab.py -O scrab.py
           python scrab.py --mode console  # Run the downloaded script
+          
+      - name: push kidnapped.html
+        run: |
+          git add .kidnapped.html
+          git add commit -m "updating kiddnapped page list"
+          git push origin main
