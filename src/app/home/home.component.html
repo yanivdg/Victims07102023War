@@ -2,8 +2,8 @@
 <div *ngIf="isLoading; else content">
     <!-- Show this when isLoading is true -->
     <p>Please wait while Page is loading...</p>
-    <h1 style="font-size: 4rem; color: red">BRING THEM HOME</h1>
-        <div [innerHTML]="documentHtmlContent"></div> 
+    <h1 style="font-size::5vw; color: red">BRING THEM HOME</h1>
+        <div class=divchild [innerHTML]="documentHtmlContent"></div> 
 </div>
   <ng-template #content>
     <div id="yt-background">
