@@ -106,3 +106,9 @@ iframe{
   border: 5px solid blue; /* Blue border around the wrapper for visualization */
   box-sizing: border-box; /* Include border in width and height calculations */
 }
+
+.image-container .item {
+  width: 50px; /* Width of each image */
+  height: 50px; /* Height of each image */
+  box-sizing: border-box; /* Include border in width and height calculations */
+}
