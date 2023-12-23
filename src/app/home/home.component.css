@@ -91,17 +91,18 @@ iframe{
 .image-container {
   width: 1920px; /* Set the container width */
   height: 1080px; /* Set the container height */
-  border: 10px solid red; /* Red border around the container */
+  border: 5px solid red; /* Red border around the container */
+  position: relative; /* Establishes a positioning context for absolutely positioned children */
 }
 
 .image-container .image-wrapper {
+  position: absolute; /* Position the wrapper relative to the container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Occupy full width of the container */
+  height: 100%; /* Occupy full height of the container */
   display: flex;
   flex-wrap: wrap;
-}
-
-.image-container .item {
-  width: 100px; /* Width of each image */
-  height: 100px; /* Height of each image */
-  border: 1px solid red; /* Red border around each image */
+  border: 5px solid blue; /* Blue border around the wrapper for visualization */
   box-sizing: border-box; /* Include border in width and height calculations */
 }
