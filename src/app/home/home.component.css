@@ -87,3 +87,21 @@ iframe{
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ccc; /* Optional border for visualization */
 }
+
+.image-container {
+  width: 1920px; /* Set the container width */
+  height: 1080px; /* Set the container height */
+  border: 10px solid red; /* Red border around the container */
+}
+
+.image-container .image-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-container .item {
+  width: 100px; /* Width of each image */
+  height: 100px; /* Height of each image */
+  border: 1px solid red; /* Red border around each image */
+  box-sizing: border-box; /* Include border in width and height calculations */
+}
