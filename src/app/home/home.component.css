@@ -107,3 +107,19 @@ iframe{
   height: 20px; /* Height of each image */
   box-sizing: border-box; /* Include border in width and height calculations */
 }
+
+.divcontainer {
+  position: relative; /* Establishes a positioning context for absolutely positioned children */
+  width: 500px; /* Set container width */
+  height: 300px; /* Set container height */
+  border: 1px solid #ccc; /* Optional: Border for visualization */
+}
+
+.divchild {
+  position: absolute; /* Position the child div */
+  top: 0; /* Align to the top edge of the container */
+  left: 0; /* Align to the left edge of the container */
+  width: 50px; /* Set width */
+  height: 50px; /* Set height */
+  background-color: red; /* Background color for visualization */
+}
