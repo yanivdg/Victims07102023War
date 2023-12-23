@@ -7,7 +7,7 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
     const parser = new DOMParser();
     const newHTMLDocument = parser.parseFromString(newHTML, 'text/html');
 
-     // Update HTML language attribute and add custom attribute
+    // Update HTML language attribute and add custom attribute
     newHTMLDocument.documentElement.lang = 'en';
     newHTMLDocument.documentElement.setAttribute('data-critters-container', '');
 
@@ -20,7 +20,7 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
       meta.setAttribute('charset', 'utf-8');
       newHTMLDocument.head.appendChild(meta);
     }
-    
+
     // Update href attribute for link elements
     newHTMLDocument.querySelectorAll('link[href]').forEach(link => {
       const href = link.getAttribute('href');
@@ -40,13 +40,11 @@ fetch('https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/b
     const titleTag = newHTMLDocument.querySelector('title');
     titleTag.textContent = 'War Victims 07-Oct-2023 (ver.22122023_0119)';
 
-    // Manipulate specific elements before appending to the existing document
-    const newHead = newHTMLDocument.head.innerHTML;
-    const newBody = newHTMLDocument.body.innerHTML;
+    // Manipulate specific elements before appending to the existing content element
+    const newContent = newHTMLDocument.getElementById('content').innerHTML;
 
-    // Replace specific elements or append them to the existing document
-    document.head.innerHTML = newHead;
-    document.body.innerHTML = newBody;
+    // Insert the modified content into the #content element
+    document.getElementById('content').innerHTML = newContent;
   })
   .catch(error => {
     console.error('Error fetching or updating HTML:', error);
