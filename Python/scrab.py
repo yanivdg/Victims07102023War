@@ -53,8 +53,9 @@ def  get_resource():
         yellow_images = 0  
         # For demonstration, returning HTML content as JSON
         html_content = '<html>\n'
-        html_content += '<style>\n .image-container {\n  display: flex;\n  margin: 0; \n}\n'
-        html_content += '.image-container img {max-width: 80%;\n height: auto;\n}\n'
+        html_content += '<style>\n .image-container {\n  display: flex;\n flex-wrap:wrap \n margin: 0; \n}\n'
+        html_content += '.image-container img { width: 50 ;\n height: auto;\n}\n'
+        html_content += 'figure {\n margin: 0; \npadding: 0;\n}'
         html_content += '</style>\n'
         html_content += '<body>\n<div class="image-container">\n'
         for img in img_tags:
@@ -75,7 +76,7 @@ def  get_resource():
                 filename = os.path.splitext(os.path.basename(src))[0]
                 html_content += f'<figure>\n<img src="{src}" alt="{alt}" style="{img["style"]}">\n'
                 font_family = "Arial, sans-serif"  # Change this to your desired font family
-                font_size = "20px"  # Change this to your desired font size
+                font_size = "15px"  # Change this to your desired font size
                 # Assuming f is your file object or file handler
                 html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename} {alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
