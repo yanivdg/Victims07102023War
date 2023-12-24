@@ -78,7 +78,7 @@ def  get_resource():
                 font_family = "Arial, sans-serif"  # Change this to your desired font family
                 font_size = "15px"  # Change this to your desired font size
                 # Assuming f is your file object or file handler
-                html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename}\n{alt}</figcaption>\n</figure>\n\n'
+                html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename}<br>{alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
         totalall =   f'<p font-family="Arial" style="font-size:3vw;color:red;">Kidnapped: {total_images}</p>\n'
         totalall += f'<p font-family="Arial" style="font-size:3vw;color:black;">Murdered: {black_images}</p>\n'
