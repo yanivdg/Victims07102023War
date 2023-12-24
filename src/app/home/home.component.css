@@ -8,21 +8,24 @@ table {
     padding: 8px; /* This adds some space around the content in the table cells */  
   }
 
+  /*video styling starts*/
 /* Video background container */
 #yt-background {
-  position: fixed;
-  top: 0;
-  left: 0;
+  display:flex;
+  max-width: 1200px; /* Set the maximum width as needed */
+  margin: 0 auto; /* Center the container */
+}
+
+iframe {
+  display: block;
   width: 100%;
-  height: 100%;
-  z-index: -1;
+  height: 200px; /* Set the height as needed */
+  margin-bottom: 10px; /* Optional: Adjust the spacing between videos */
 }
+/*video styling end*/
 
-iframe{
-  width:30%;
-  height:30%;
-}
 
+/*queryfiltering starts */
 .impotedhtml
 {
   max-height: 700px; /* Set a fixed height for the table container */
@@ -30,45 +33,12 @@ iframe{
   border: 1px solid #ccc; /* Optional border for visualization */
 }
 
-/* Wrapper styling */
-#count-wrapper {
-  display:inline-block;
-  align-items:center;
-  max-height: 300px; /* Set a fixed height for the table container */
-  overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ccc; /* Optional border for visualization */
-}
-
-/* Count design */
-#count {
-  display:inline-flex;
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background-color: #f8f8f8;
-  font-size: 1em;
-  font-weight: bold;
-  align-items: center;
-  max-height: 300px; /* Set a fixed height for the table container */
-  overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ccc; /* Optional border for visualization */
-}
-
-
-/* Content */
-/*
-.content {
-  position:absolute;
-  background-color: white;
-}
-*/
 /* bing */
-.content {
+.querytitle {
   top: 0; /* Adjust as needed */
-  left: 50%; /* Adjust as needed */
   padding: 1em; /* Add some space around your content */
   clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-  width: 50%; /* Or any specific width */
+  width: 90%; /* Or any specific width */
   height: auto; /* Or any specific height */
   /* Add a fallback for older browsers that don't support 'rgba' */
   background-color: rgb(255, 255, 255);
@@ -87,3 +57,98 @@ iframe{
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ccc; /* Optional border for visualization */
 }
+
+
+/*victims count element starts*/
+/* Wrapper styling */
+#count-wrapper {
+  text-align: center; /* Center-aligns the text content */
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 auto; /* Centers the element horizontally */
+  width: max-content; /* Allows the element to take up only the necessary space */
+}
+
+/* Count design */
+#count {
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+}
+
+@keyframes droplet {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+.drop {
+  position: relative;
+  width: 50px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop p {
+  color: red;
+  font-weight: bold;
+  font-size: 90px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow properties */
+}
+
+.drop::after,
+.drop::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  width: 30px;
+  height: 40px;
+  background-color: #ff0000;
+  border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+  animation: droplet 1s infinite;
+}
+
+.drop::before {
+  left: -20px;
+  animation-delay: 0.5s;
+}
+
+.drop::after {
+  right: -20px;
+  animation-delay: 1s;
+}
+/*victims count element ends*/
+
+/*combo and free text box styling starts*/
+.selectoptions {
+  text-align: center; /* Center aligns elements within the container */
+}
+
+.right-align {
+  display: block; /* Ensures elements occupy the full container width */
+  margin: 0 auto; /* Centers elements horizontally within the container */
+
+}
+/*---------------------------*/
+
+/*victims query starts*/
+.querycontainer {
+  position: relative;
+  height: 400px; /* Set a specific height for the container */
+  /* Other styles for the container */
+}
+
+.querywrapper {
+  position: absolute;
+  top: 0;
+  left: 0; /* Ensure the element starts from the left */
+  width: 100%; /* Make it span the full width */
+  background-color: #f0f0f0; /* Add a background color for visibility */
+  z-index: 0; /* Set a higher z-index if necessary */
+  /* Other styles for the top div */
+}
+/*----------------------------*/
+
