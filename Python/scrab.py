@@ -53,8 +53,8 @@ def  get_resource():
         yellow_images = 0  
         # For demonstration, returning HTML content as JSON
         html_content = '<html>\n'
-        html_content += '<style>\n .image-container {\n  display: flex;\n   flex-wrap: wrap;\nmargin: 0; \n}\n'
-        html_content += '.image-container img {max-width: 100px;\n height: auto;\n}\n'
+        html_content += '<style>\n .image-container {\n  display: flex;\n  margin: 0; \n}\n'
+        html_content += '.image-container img {max-width: 40%;\n height: auto;\n}\n'
         html_content += '</style>\n'
         html_content += '<body>\n<div class="image-container">\n'
         for img in img_tags:
@@ -66,7 +66,7 @@ def  get_resource():
                 print(alt)
                 if "ז\"ל" in alt:
                     print("black")
-                    img['style'] = "border: 20px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);"
+                    img['style'] = "border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);"
                     black_images += 1
                 else:
                     print("yellow")
