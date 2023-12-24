@@ -38,7 +38,7 @@ jobs:
       - name: push kidnapped.html
         run: |
           git config --global user.name 'yanivdg'
-          git config --global user.email 'yaniv.dg.work@gmail.com
+          git config --global user.email 'yaniv.dg.work@gmail.com'
           git add kidnapped.html
           git commit -m "updating kiddnapped.html page list"
           git push origin main
