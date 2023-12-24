@@ -10,7 +10,7 @@ table {
 
   .content-table {
     table-layout: fixed;
-    width: 100%; /* Set the table width to fill the available space */
+    width: 100%;; /* Set the table width to fill the available space */
   }
   
   .content-table td {
