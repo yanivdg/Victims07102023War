@@ -1,4 +1,4 @@
 git status
 git add .
-git commit -m "last changes"
+git commit -m "push file:$1"
 git push origin main
