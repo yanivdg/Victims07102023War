@@ -54,8 +54,8 @@ def  get_resource():
         # For demonstration, returning HTML content as JSON
         html_content = '<html>\n'
         html_content += '<style>\n .image-container {\n  display: flex;\n flex-wrap:wrap; \n margin: 0; \n}\n'
-        html_content += '.image-container img { width: 50 ;\n height: auto;\n}\n'
-        html_content += 'figure {\n margin: 0; \npadding: 0;\n}'
+        html_content += '.image-container img { \nwidth: 50 ;\n height: auto;\n}\n'
+        html_content += 'figure {\n margin: 0; \n padding: 0;\n}\n'
         html_content += '</style>\n'
         html_content += '<body>\n<div class="image-container">\n'
         for img in img_tags:
