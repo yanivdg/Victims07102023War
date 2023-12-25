@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --global user.name 'yanivdg'
           git config --global user.email 'yaniv.dg.work@gmail.com'
-                   if [[ $(git status --porcelain) ]]; then
+                   if [[ -n $(git diff --name-only ${{ github.event.before }} ${{ github.sha }} 'kidnapped.html') ]]; then
                       echo "Changes detected."
                       # Perform actions if changes are present, such as git add, commit, and push.
                       git add kidnapped.html
@@ -48,4 +48,3 @@ jobs:
                   else
                     echo "No changes to push."
                   fi
-
