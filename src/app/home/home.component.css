@@ -12,6 +12,12 @@ table {
     table-layout: fixed;
     width: 100%;; /* Set the table width to fill the available space */
   }
+  /* Adjust column widths for smaller screens */
+@media screen and (max-width: 600px) {
+  table {
+    width: auto;
+  }
+}
   
   .content-table td {
     vertical-align: top; /* Align content to the top of cells */
