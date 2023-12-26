@@ -8,7 +8,7 @@ os.system('ng build')
 #################
 # Define the full path
 fullPath = 'https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/'
-htmlfilecontentpath = '../dist/my-app/browser/index.html'
+htmlfilecontentpath = 'https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/index.html'
 # Open and parse the HTML file
 with open(htmlfilecontentpath, 'r') as f:
     soup = BeautifulSoup(f, 'html.parser')
