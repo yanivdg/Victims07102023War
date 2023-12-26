@@ -23,7 +23,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12  # Set the Python version
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install bs4
+          # Install dependencies using 'python -m pip' command
+          
       - name: Setting Index.html after build
         run: |
           wget https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/githubrootset.py -O githubrootset.py
