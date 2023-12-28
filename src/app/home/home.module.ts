@@ -8,21 +8,24 @@ import { HomeComponent } from './home.component';
 import { DataService } from '../service/data.service';
 
 import { FormsModule } from '@angular/forms';
+import { AppYoutubePlayerModule } from '../app-youtube-player/app-youtube-player.module';
+//import { AppYoutubePlayerComponent } from '../app-youtube-player/app-youtube-player.component';
 //import { SearchFilterComponent } from '../search-filter/search-filter.component'; // Import the SearchFilterComponent
 
+
 @NgModule({
-  declarations: [HomeComponent],
+    declarations: [HomeComponent],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+      FormsModule,
+      AppYoutubePlayerModule
+
     //SearchFilterComponent
   ],
   providers: [DataService],
-},
-
-)
+},)
 export class HomeModule { }
 
 

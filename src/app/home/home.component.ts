@@ -7,7 +7,7 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+    styleUrl: './home.component.css',
 })
 
 export class HomeComponent implements OnInit{
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit{
 
   constructor(
   private dataService: DataService,
-  private sanitizer: DomSanitizer // Inject DomSanitizer
+      private sanitizer: DomSanitizer // Inject DomSanitizer
   ) {}
 
   //methods
