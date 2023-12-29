@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import os
 from datetime import datetime
+import re
 
 def is_url_or_path(string):
     # Regular expression patterns for URL and file path
@@ -8,12 +9,12 @@ def is_url_or_path(string):
     path_pattern = re.compile(r'^[a-zA-Z]:\\(?:\w+\\?)*$|^/(\w+/)*\w+$')
 
     if re.match(url_pattern, string):
-        return true
+        return True
     elif re.match(path_pattern, string):
-        return true
+        return True
     else:
-        return false
-        
+        return False
+
 ##compile program##
 # Run ng build
 os.system('ng build')
@@ -31,13 +32,11 @@ with open(htmlfilecontentpath, 'r') as f:
 
 # Update href attribute for link elements
 for link in soup.find_all('link', href=True):
-    if not is_url_or_path(link['href']):
-        link['href'] = fullPath + link['href']
+    link['href'] = ('' if is_url_or_path(link['href']) else fullPath) + link['href']
 
 # Update src attribute for script elements
 for script in soup.find_all('script', src=True):
-    if not is_url_or_path(script['src']):
-        script['src'] = fullPath + script['src']
+        script['src'] = ('' if is_url_or_path(script['src']) else fullPath) + script['src']
 
 # Get the modification time of the file
 mod_time = os.path.getmtime(htmlfilecontentpath)
