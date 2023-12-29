@@ -83,7 +83,8 @@ def  get_resource():
         totalall =   f'<p font-family="Arial" style="font-size:3vw;color:red;">Kidnapped: {total_images}</p>\n'
         totalall += f'<p font-family="Arial" style="font-size:3vw;color:black;">Murdered: {black_images}</p>\n'
         totalall +=  f'<p font-family="Arial" style="font-size:3vw;color:#FFD700;">Alive: {yellow_images}</p>\n'
-        html_content = insert_after_substring(html_content, "<body>", totalall)
+        #html_content = insert_after_substring(html_content, "<body>", totalall)
+         html_content = insert_after_substring("</td><td>"+ html_content +  "</td></tr></table>", "<body>","<table><tr><td>" + totalall)
         html_content += '</body></html>'
         return {
             'header':{'Content-Type': 'text/html'},
