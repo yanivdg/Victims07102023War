@@ -7,9 +7,12 @@ from datetime import datetime
 os.system('ng build')
 #################
 # Define the full path
+
+fullPath = 'https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/dist/my-app/browser/'
+htmlfilecontentpath = '../dist/my-app/browser/index.html'
 cdnmain = 'https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main'
-fullPath = f'{cdnmain}/dist/my-app/browser'
-htmlfilecontentpath = f'{fullPath}/index.html'
+#fullPath = f'{cdnmain}/dist/my-app/browser'//serverless
+#htmlfilecontentpath = f'{fullPath}/index.html'//serverless
 # Open and parse the HTML file
 with open(htmlfilecontentpath, 'r') as f:
     soup = BeautifulSoup(f, 'html.parser')
@@ -31,5 +34,7 @@ formatted_date_time = datetime.fromtimestamp(mod_time).strftime('%d%m%Y_%H%M')
 # Set the title of the new HTML file
 soup.title.string = "War victims 07-OCT-2023(ver."+ formatted_date_time + ")"
 # Write the updated HTML to a new file in the root directory
-with open(f'{cdnmain}/index.html', 'w') as f:
+with open('../index.html', 'w') as f:
     f.write(str(soup))
+#with open(f'{cdnmain}/index.html', 'w') as f:
+#    f.write(str(soup))
