@@ -27,7 +27,3 @@ import { AppYoutubePlayerModule } from '../app-youtube-player/app-youtube-player
   providers: [DataService],
 },)
 export class HomeModule { }
-
-
-
-

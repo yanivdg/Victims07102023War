@@ -10,7 +10,7 @@ table {
 
   .content-table {
     table-layout: fixed;
-    width: 100%;; /* Set the table width to fill the available space */
+    width: 100%; /* Set the table width to fill the available space */
   }
   
   .content-table td {
@@ -19,10 +19,18 @@ table {
     width: 600px;
   }
   
-  center-content{
+    center-content{
     width: 100% /* Center content occupies remaining space */
   }
-  .iframe-left,
+
+.iframe-left {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    /*float: right; */ /* Align the iframe to the right */
+    display: block;
+    margin-left: auto;
+}
   .iframe-right {
     position: relative;
     width: 400px;
@@ -40,11 +48,17 @@ table {
   }
   
 /*queryfiltering starts */
-.impotedhtml
-{
-  max-height: 700px; /* Set a fixed height for the table container */
-  overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ccc; /* Optional border for visualization */
+.impotedhtml {
+    /*
+    max-height: 700px; 
+    overflow-y: auto; 
+    border: 1px solid #ccc; 
+    */
+    max-height: 700px; /* Set a fixed height for the table container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional border for visualization */
+    width: 100%; /* Set your preferred width */
+    margin: 0 auto; /* Center the container horizontally */
 }
 
 /* bing */
@@ -149,7 +163,8 @@ table {
 /*---------------------------*/
 
 /*victims query starts*/
-.querycontainer {
+.querycontainer 
+ {
   position: relative;
   height: 400px; /* Set a specific height for the container */
   /* Other styles for the container */

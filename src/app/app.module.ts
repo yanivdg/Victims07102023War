@@ -6,16 +6,18 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 //import { DataService } from './service/data.service';
 import { HomeModule } from './home/home.module'; // Import HomeModule
+import { AppYoutubePlayerModule } from './app-youtube-player/app-youtube-player.module';
 
 @NgModule({
 imports: [
-CommonModule, 
-BrowserModule,
-HttpClientModule,
-HomeModule,
-AppRoutesModule,
-],
-declarations: [ AppComponent],
-bootstrap: [ AppComponent ],
+    CommonModule, 
+    BrowserModule,
+    HttpClientModule,
+    HomeModule,
+        AppRoutesModule,
+        AppYoutubePlayerModule
+    ],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent ],
 })
 export class AppModule { }
