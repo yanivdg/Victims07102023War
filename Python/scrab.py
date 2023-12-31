@@ -52,12 +52,33 @@ def  get_resource():
         black_images = 0
         yellow_images = 0  
         # For demonstration, returning HTML content as JSON
+
+
+  
         html_content = '<html>\n'
-        html_content += '<style>\n .image-container {\n  display: flex;\n flex-wrap:wrap; \n margin: 0; \n}\n'
-        html_content += '.image-container img { \nwidth: 20 ;\n height: auto;\n}\n'
-        html_content += 'figure {\n margin: 0; \n padding: 0;\n}\n'
-        html_content += '</style>\n'
-        html_content += '<body>\n<div class="image-container">\n'
+        #
+        #html_content += '<style>\n .image-container {\n  display: flex;\n flex-wrap:wrap; \n margin: 0; \n}\n'
+        #html_content += '.image-container img { \nwidth: 20 ;\n height: auto;\n}\n'
+        #html_content += 'figure {\n margin: 0; \n padding: 0;\n}\n'
+
+        #html_content += 'table {width: 100%;}\n'
+        #html_content += 'td {width: 50%;vertical-align: top;}\n'
+        #html_content += '.sum-logic {padding: 20px;}\n'
+        #html_content += '.image-section {padding: 20px;}'
+        #html_content += '</style>\n'
+        #html_content += "<body>\n<div class='image-container'>\n"
+        #
+
+        html_content += "\n<head>\n<style>\n"
+        html_content += ".right\n{display: flex;\nflex-wrap: wrap;\njustify-content: center;\nwidth: 80%;\npadding: 1px;\nbox-sizing: border-box;\n}\n"
+        html_content += "\nfigure\n{width: 5vw;\nmax-width: 80px;\n text-align: center; \nmargin: 0;\n}\n"
+        html_content += "\nimg {\nwidth: auto;\nheight:auto;\nmax-width: 70%;\n border: 5vw solid #FFD700;\n border-radius: 50%;\nbox-shadow: 0 0 1vw #FFD700;\n}\n"
+        html_content += "\nfigcaption {\nmargin-top: 0vw;\n font-size: 5vw;\n }\n"
+        html_content += "\n.container {\ndisplay: flex;\nflex-wrap: wrap;\njustify-content: space-between;\n}\n"
+        html_content += "\n.left{\nwidth: 20%;\npadding: 1px;\nbox-sizing: border-box;\n}\n"
+        html_content += "\n.left p \n{margin: 0;\n}\n"
+        html_content += "\n</style>\n</head>\n<body>\n<div class='container'>\n"
+        html_content += "<div class='right'>\n"
         for img in img_tags:
             total_images += 1
             src = img.get('src', '')
@@ -76,16 +97,17 @@ def  get_resource():
                 filename = os.path.splitext(os.path.basename(src))[0]
                 html_content += f'<figure>\n<img src="{src}" alt="{alt}" style="{img["style"]}">\n'
                 font_family = "Arial, sans-serif"  # Change this to your desired font family
-                font_size = "15px"  # Change this to your desired font size
+                font_size = "10px"  # Change this to your desired font size
                 # Assuming f is your file object or file handler
                 html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename}<br>{alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
-        totalall =   f'<p font-family="Arial" style="font-size:3vw;color:red;">Kidnapped: {total_images}</p>\n'
+        totalall = "<div class='left'>\n"
+        totalall +=  f'<p font-family="Arial" style="font-size:3vw;color:red;">Kidnapped: {total_images}</p>\n'
         totalall += f'<p font-family="Arial" style="font-size:3vw;color:black;">Murdered: {black_images}</p>\n'
         totalall +=  f'<p font-family="Arial" style="font-size:3vw;color:#FFD700;">Alive: {yellow_images}</p>\n'
-        #html_content = insert_after_substring(html_content, "<body>", totalall)
-         html_content = insert_after_substring("</td><td>"+ html_content +  "</td></tr></table>", "<body>","<table><tr><td>" + totalall)
-        html_content += '</body></html>'
+        totalall += "</div>\n"
+        html_content = insert_after_substring( html_content , "<div class='container'>\n", totalall)
+        html_content += "\n</div>\n</body>\n</html>"
         return {
             'header':{'Content-Type': 'text/html'},
             'statusCode': 200,
