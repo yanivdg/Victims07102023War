@@ -212,8 +212,10 @@ export class HomeComponent implements OnInit {
         const classorid: string = '.war-victims-cards-container';
         const jsonbody = { url: urlvalue, classorid: classorid };
 
-
-        this.dataService.getData('https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html')
+        const kidnappedurl = !window.location.href.includes('localhost') ?
+            'https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html' :
+            'https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/dev.html';
+        this.dataService.getData(kidnappedurl)
             .subscribe(
                 (data: string) => {
                     this.documentHtmlContent = this.sanitizer.bypassSecurityTrustHtml(data);; // Assign fetched HTML content to the variable
