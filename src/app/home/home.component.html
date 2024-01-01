@@ -3,13 +3,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-
-    <app-youtube-player [style.visibility]="isLoading ? 'hidden' : 'visible'">TIKVA</app-youtube-player>
+    <!--[style.visibility]="isLoading ? 'hidden' : 'visible'" style="height:10px"-->
+    <div class="justatam" [style.height.px]="isLoading ? 0 : 150">
+    <app-youtube-player [style.visibility]="isLoading ? 'hidden' : 'visible'" >TIKVA</app-youtube-player>
+    </div>
     <div *ngIf="isLoading; else querypage">
         <!-- Show this when isLoading is true -->
         <p>Please wait while Page is loading...</p>
-        <h1 style="font-size:3vw; color: red">BRING THEM HOME</h1>
-         <div class="impotedhtml" style="border: 20px solid red;width: 80vw;height: 80vh;box-sizing: border-box;"> 
+        <h1 style="font-size:3vw; top:0px; color: red; text-align: center;">BRING THEM HOME</h1>
+         <div class="impotedhtml" style="border: 20px solid red;width: 90vw;height: 65vh;box-sizing: border-box;"> 
         <div [innerHTML]="documentHtmlContent"></div>
         </div>
     </div>
@@ -17,29 +19,29 @@
         <table class="content-table">
             <tr>
                 <td class="iframe-left">
-                    <iframe width="400"
-                            height="300"
+                    <iframe width="500"
+                            height="200"
                             src="https://www.youtube.com/embed/8FomPFXPmHs?mute=1&autoplay=1&controls=0&loop=1&playlist=8FomPFXPmHs"
                             title="Drone video shows Hamas&#39; destruction at Israel music festival"
                             frameborder="0"
-                            allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
+                            allow="autoplay; encrypted-media">
+                    </iframe>
                     <div class="overlay"></div>
-                    <iframe width="400"
-                            height="300"
+                    <iframe width="500"
+                            height="200"
                             src="https://www.youtube.com/embed/VMSpCdmwH6w?mute=1&autoplay=1&controls=0&loop=1&playlist=VMSpCdmwH6w"
                             title="ערוץ 12: היום הראשון של מלחמת חרבות ברזל, 07.10.2023 (א)"
                             frameborder="0"
-                            allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
+                            allow="autoplay; encrypted-media">
+                    </iframe>
                     <div class="overlay"></div>
-                    <iframe width="400"
-                            height="300"
+                    <iframe width="500"
+                            height="200"
                             src="https://www.youtube.com/embed/8iibO7SHbgo?mute=1&autoplay=1&controls=0&loop=1&playlist=8iibO7SHbgo"
                             title="Israel&#39;s Kfar Aza kibbutz left in ruins after deadly Hamas attack"
                             frameborder="0"
-                            allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
+                            allow="autoplay; encrypted-media">
+                    </iframe>
                     <div class="overlay"></div>
                 </td>
                 <td class="center-content">
@@ -61,29 +63,29 @@
                     </ng-template>
                 </td>
                 <td class="iframe-right">
-                    <iframe width="400"
-                            height="300"
+                    <iframe width="500"
+                            height="200"
                             src="https://www.youtube.com/embed/zCtLLT_36lY?mute=1&autoplay=1&controls=0&loop=1&playlist=zCtLLT_36lY"
                             title="הקרב על חילוץ בני הערובה באופקים"
                             frameborder="0"
-                            allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
+                            allow="autoplay; encrypted-media">
+                    </iframe>
                     <div class="overlay"></div>
-                    <iframe width="400"
-                            height="300"
+                    <iframe width="500"
+                            height="200"
                             src="https://www.youtube.com/embed/tD5Ldwe0kyE?mute=1&autoplay=1&controls=0&loop=1&playlist=tD5Ldwe0kyE"
                             title="Debris Removal Begins At Police HQ Destroyed By Hamas In Sderot, Israel"
                             frameborder="0"
-                            allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
+                            allow="autoplay; encrypted-media">
+                    </iframe>
                     <div class="overlay"></div>
-                    <iframe width="400"
-                            height="300"
+                    <iframe width="500"
+                            height="200"
                             src="https://www.youtube.com/embed/xS8dwk83sD4?mute=1&autoplay=1&controls=0&loop=1&playlist=xS8dwk83sD4"
                             title="הכירו את &quot;ציר המוות&quot; בשדרות, בו נרצחו 13 גמלאים באוטובוס"
                             frameborder="0"
-                            allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
+                            allow="autoplay; encrypted-media">
+                    </iframe>
                     <div class="overlay"></div>
                 </td>
             </tr>
