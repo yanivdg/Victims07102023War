@@ -23,10 +23,10 @@ import {
   ɵɵqueryRefresh,
   ɵɵviewQuery
 } from "./chunk-RXRC473I.js";
+import "./chunk-KUOPV5YS.js";
 import {
   fromEventPattern
 } from "./chunk-2UXUBMH3.js";
-import "./chunk-KUOPV5YS.js";
 import {
   BehaviorSubject,
   Observable,

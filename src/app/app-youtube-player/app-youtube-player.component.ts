@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'app-youtube-player',
@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
     styleUrl: './app-youtube-player.component.css'
 })
 
-export class AppYoutubePlayerComponent {
+export class AppYoutubePlayerComponent implements AfterViewInit {
+    width: number | undefined;
+    height: number | undefined;
+  
+    constructor(private el: ElementRef) {}
+
     videoId = '9eDzojXuMZY'; // replace with your video ID
     playerVars = {
         controls: 0,  // This disables the player controls
@@ -14,8 +19,15 @@ export class AppYoutubePlayerComponent {
         autoplay: 1,  // This enables autoplay of the video
         disablekb: 1,  // This disables keyboard controls
         mute: 0,
-        playlist: '9eDzojXuMZY'  // This sets the playlist to the same video ID
+        playlist: this.videoId  // This sets the playlist to the same video ID
     };
+    ngAfterViewInit() {
+        const div = this.el.nativeElement.querySelector('.youtubewrap');
+        const computedStyle = window.getComputedStyle(div);
+  
+        this.width = parseInt(computedStyle.width.replace('px', ''), 10)
+        this.height = parseInt(computedStyle.height.replace('px', ''), 10)
+      }
 }
 
 //https://www.youtube.com/watch?v=4iEq2hUZMMQ

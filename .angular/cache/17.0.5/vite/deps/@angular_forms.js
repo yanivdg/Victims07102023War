@@ -39,10 +39,10 @@ import {
   ɵɵgetInheritedFactory,
   ɵɵlistener
 } from "./chunk-RXRC473I.js";
+import "./chunk-KUOPV5YS.js";
 import {
   forkJoin
 } from "./chunk-2UXUBMH3.js";
-import "./chunk-KUOPV5YS.js";
 import {
   __spreadProps,
   __spreadValues,
