@@ -227,10 +227,14 @@ center-content{
   }
     /* Styles for mobile screens */
     .center-content {
-      flex-direction: column; /* Stack the images vertically */
+      display: flex; /* Use flexbox to layout the children */
+      flex-wrap: wrap; /* Allow the items to wrap onto multiple lines */
+      justify-content: space-around; /* Distribute items evenly with space around them */
     }
   
     .center-content > div {
-      max-width: 100%; /* Allow the images to take the full width */
+      flex: 1 0 auto; /* Allow the children to grow and shrink as needed */
+      max-width: 20%; /* Set a max-width to prevent the items from growing too large */
     }
-}
+  }
+  
