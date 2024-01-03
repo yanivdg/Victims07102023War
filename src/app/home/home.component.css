@@ -233,7 +233,7 @@ center-content{
     }
   
     .center-content > div {
-      flex: 1 1 0; /* Allow the children to grow and shrink, even smaller than their content */
-      max-width: 100%; /* Allow the children to take up the full width if necessary */
+      flex: 1 0 0; /* Allow the children to grow and shrink, even smaller than their content */
+      max-width: 50%; /* Allow the children to take up the full width if necessary */
     }
   }
