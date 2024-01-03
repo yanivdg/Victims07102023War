@@ -229,7 +229,8 @@ center-content{
     .center-content {
       display: flex; /* Use flexbox to layout the children */
       flex-wrap: wrap; /* Allow the items to wrap onto multiple lines */
-      justify-content: space-around; /* Distribute items evenly with space around them */
+      justify-content: center; /* Center items on the line */
+      align-items: center; /* Center items vertically */
     }
   
     .center-content > div {
