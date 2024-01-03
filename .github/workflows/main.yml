@@ -35,11 +35,6 @@ jobs:
           python -m pip install bs4
           # Install dependencies using 'python -m pip' command
           
-      - name: Setting Index.html after build
-        run: |
-          wget https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/githubrootset.py -O githubrootset.py
-          python githubrootset.py # Run the downloaded script
-          
       - name: Build Angular app
         run: ng build --configuration production --base-href="/Victims07102023War/"
 
