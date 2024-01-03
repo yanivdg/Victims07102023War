@@ -186,5 +186,43 @@ center-content{
   z-index: 0; /* Set a higher z-index if necessary */
   /* Other styles for the top div */
 }
-/*----------------------------*/
+/*-------------for mobile---------------*/
+@media screen and (max-width: 768px) {
+  /* Styles for mobile screens */
+  iframe {
+    width: 100%;
+    height: auto;
+  }
 
+  .content-table, .impotedhtml, .querytitle {
+    width: 100%;
+  }
+
+  .iframe-left, .iframe-right {
+    width: 100%;
+    height: auto;
+    float: none;
+  }
+
+  #count-wrapper {
+    width: 100%;
+  }
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-table, .impotedhtml, .querytitle {
+    width: 100%;
+  }
+
+  .iframe-left, .iframe-right {
+    width: 100%;
+    height: auto;
+    float: none;
+  }
+
+  #count-wrapper {
+    width: 100%;
+  }
+}

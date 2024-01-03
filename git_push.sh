@@ -1,4 +1,4 @@
 git status
 git add .
-git commit -m 'push file:$1'
+git commit -m "fix for mobile"
 git push origin main
