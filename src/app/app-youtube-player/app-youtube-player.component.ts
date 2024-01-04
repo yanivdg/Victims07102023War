@@ -18,7 +18,7 @@ export class AppYoutubePlayerComponent implements AfterViewInit {
         loop: 1,      // This enables looping of the video
         autoplay: 1,  // This enables autoplay of the video
         disablekb: 1,  // This disables keyboard controls
-        mute: 0,
+        mute: 1,
         playlist: this.videoId  // This sets the playlist to the same video ID
     };
     ngAfterViewInit() {
