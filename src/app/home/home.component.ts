@@ -11,7 +11,7 @@ import { switchMap } from 'rxjs/operators';
 })
 
 export class HomeComponent implements OnInit {
-    victimscount: number = 0;
+    victimsCount: number = 0;
     public eventEmitter = new EventEmitter<void>();
     private subscription: Subscription = new Subscription();
     //@Output() eventEmitter = new EventEmitter<void>();
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
         p: { combo: 'Police', image: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emblem_of_Israel_Police_Blue.svg/1024px-Emblem_of_Israel_Police_Blue.svg.png')" },
         r: { combo: 'Rescue', image: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Magen_David_Adom.svg/1200px-Magen_David_Adom.svg.png'),url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/FireDepIsrael.svg/1024px-FireDepIsrael.svg.png'" }
     };
-
+     extractedTitle :string = '';
     constructor(
         private dataService: DataService,
         private sanitizer: DomSanitizer // Inject DomSanitizer
@@ -51,14 +51,33 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         console.log("ngOnInit");
+        
+        const indexRoot: string = "https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/index.html";
+        this.dataService.getData(indexRoot).subscribe(
+            (htmlDoc: any) => {
+              this.extractedTitle = this.extractTextAfterKeyword(this.dataService.getContentByElementFromHTML(htmlDoc,"title").text,"ver");
+            },
+            (error) => {
+              console.error('Error fetching file:', error);
+            });
+            
         this.scraber();
         this.elementsRetrieved.subscribe((elements: string) => {
-            this.victimscount = this.CastStringToElements(elements).length;
+            this.victimsCount = this.CastStringToElements(elements).length;
         });
     }
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
+    }
+
+     extractTextAfterKeyword(text: string, keyword: string): string {
+        const keywordIndex = text.indexOf(keyword);
+        if (keywordIndex !== -1) {
+            return text.substring(keywordIndex + keyword.length).trim();
+        } else {
+            return "Keyword not found in the text.";
+        }
     }
 
     CastElementsToString(elements: Element[]): string {
@@ -86,7 +105,7 @@ export class HomeComponent implements OnInit {
         // Get all elements with the class 'war-victims-card'
         const _elements = doc.querySelectorAll(this.NodeLevelList[0]);
         // Filter elements based on the search query and sort value
-        const filteringquery = Array.from(_elements).filter((element: any) => {
+        const filteringQuery = Array.from(_elements).filter((element: any) => {
             const filterValue = element.getAttribute('data-filter');
             const sort = this.selectedOption === 'All' ?
                 this.selectedOption : this.codeTranslateDictionary[element.getAttribute('data-sort').trim()].combo;
@@ -95,12 +114,12 @@ export class HomeComponent implements OnInit {
         });
 
         //
-        const records = this.addPropertyToElement(this.CastElementsToString(filteringquery), 'background-image', 'image');
+        const records = this.addPropertyToElement(this.CastElementsToString(filteringQuery), 'background-image', 'image');
         const tblRecords = this.convertToTable(records);
         this.filteredElements = this.sanitizer.bypassSecurityTrustHtml(tblRecords);
 
         //count filtered list
-        this.victimscount = filteringquery.length;;
+        this.victimsCount = filteringQuery.length;;
     }
 
     generateOptions(htmlString: string): void {

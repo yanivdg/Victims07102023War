@@ -3,8 +3,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
+    <p class="verNum">ver:{{extractedTitle}}</p>
     <!--[style.visibility]="isLoading ? 'hidden' : 'visible'" style="height:10px"-->
-    <div class="justatam" [style.height.px]="isLoading ? 0 : 150">
+    <div class="juststam" [style.height.px]="isLoading ? 0 : 150">
     <app-youtube-player [style.visibility]="isLoading ? 'hidden' : 'visible'" >TIKVA</app-youtube-player>
     </div>
     <div *ngIf="isLoading; else querypage">
@@ -44,7 +45,7 @@
                 <td class="center-content">
                     <div class="querytitle">7-October-2023<br>Simhat Torah<br>Black Saturday </div>
                     <div id="count-wrapper">
-                        <label class="drop"><p>{{victimscount}}</p></label>
+                        <label class="drop"><p>{{victimsCount}}</p></label>
                     </div>
                     <div class="selectoptions">
                         <input type="text" [(ngModel)]="searchQuery" (input)="filterElements()" placeholder="free text search">

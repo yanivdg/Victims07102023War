@@ -17,6 +17,12 @@ export class DataService {
     return this.http.get(url, { responseType: 'text' });
   }
 
+  getContentByElementFromHTML(htmlContent: string,elementName:string): any {
+    const doc = new DOMParser().parseFromString(htmlContent, 'text/html');
+    const specificElement = doc.querySelector(elementName);
+    return specificElement;
+  }
+
   getRequest(url:string)
   {
     return this.http.get<any>(url).pipe(
