@@ -10,7 +10,7 @@ export class DataService {
   headers = new HttpHeaders().set('Content-Type', 'text/html');
  postRequest(body:any): Observable<any> {
     const  apiUrl = 'https://yqsmgmgbyj.execute-api.us-west-1.amazonaws.com/default/WebScraberService'; // Replace with your API URL
-    return this.http.post<any>(apiUrl, body,{ headers: this.headers })
+        return this.http.post<any>(apiUrl, body,{ headers: this.headers })
   }
 
   getData(url: string): Observable<string> {

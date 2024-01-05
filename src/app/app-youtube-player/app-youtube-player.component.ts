@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
     styleUrl: './app-youtube-player.component.css'
 })
 
-export class AppYoutubePlayerComponent implements OnInit,AfterViewInit {
+export class AppYoutubePlayerComponent implements AfterViewInit {
     width: number | undefined;
     height: number | undefined;
   

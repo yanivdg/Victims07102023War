@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
             return filterValue.includes(this.searchQuery) && sort === this.selectedOption;
         });
 
-        //
+//
         const records = this.addPropertyToElement(this.CastElementsToString(filteringQuery), 'background-image', 'image');
         const tblRecords = this.convertToTable(records);
         this.filteredElements = this.sanitizer.bypassSecurityTrustHtml(tblRecords);
@@ -244,7 +244,7 @@ export class HomeComponent implements OnInit {
                     console.error('Error fetching HTML content:', error);
                 }
             );
-
+            
         /*
         this.dataService.getRequest('https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html').pipe(
          switchMap((response:any) =>
