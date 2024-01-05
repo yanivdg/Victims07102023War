@@ -29,8 +29,13 @@ box-shadow: 0 0 1vw #FFD700;
 
 figcaption {
 margin-top: 0vw;
- font-size: 5vw;
- }
+font-family: 'Arial, sans-serif';
+font-size: '10px'; }
+
+@media screen and (max-width: 768px) {
+figcaption 
+{font-size: '5px'}
+}
 
 .container {
 display: flex;
@@ -46,6 +51,21 @@ box-sizing: border-box;
 
 .left p 
 {margin: 0;
+font-family:'Arial';
+font-size:3vw;}
+
+.alive
+{
+border: 10px solid #FFD700;
+ border-radius: 50%;
+ box-shadow: 0 0 10px #FFD700;
+}
+
+.dead
+{
+border: 10px solid black;
+border-radius: 0;
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 </style>
@@ -53,634 +73,634 @@ box-sizing: border-box;
 <body>
 <div class='container'>
 <div class='left'>
-<p font-family="Arial" style="font-size:3vw;color:red;">Kidnapped: 125</p>
-<p font-family="Arial" style="font-size:3vw;color:black;">Murdered: 25</p>
-<p font-family="Arial" style="font-size:3vw;color:#FFD700;">Alive: 100</p>
+<p color:red;">Kidnapped: 125</p>
+<p color:black;">Murdered: 25</p>
+<p color:#FFD700;">Alive: 100</p>
 </div>
 <div class='right'>
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/GaliBerman.jpg" alt="גלי ברמן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">GaliBerman<br>גלי ברמן</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/05/YairJacob.jpg" alt="יאיר יעקב">
+<figcaption>YairJacob<br>יאיר יעקב</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ZivBerman.jpg" alt="זיו ברמן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ZivBerman<br>זיו ברמן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/DrorOr.jpg" alt="דרור אור">
+<figcaption>DrorOr<br>דרור אור</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/29/yardenbibas.jpg" alt="ירדן ביבס" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">yardenbibas<br>ירדן ביבס</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/IgavBuhshtev.jpg" alt="יגב בוכשטב">
+<figcaption>IgavBuhshtev<br>יגב בוכשטב</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/26/shiri.jpeg" alt="שירי ביבס" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">shiri<br>שירי ביבס</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/TalShoham.jpg" alt="טל שוהם">
+<figcaption>TalShoham<br>טל שוהם</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ArielBibs.jpg" alt="אריאל ביבס" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ArielBibs<br>אריאל ביבס</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/EdenJerusalem.jpg" alt="עדן ירושלמי">
+<figcaption>EdenJerusalem<br>עדן ירושלמי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/KafirBiebs.jpg" alt="כפיר ביבס" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">KafirBiebs<br>כפיר ביבס</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AliaCohen.jpg" alt="אליה כהן">
+<figcaption>AliaCohen<br>אליה כהן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ItzikElgart.jpg" alt="איציק (יצחק) אלגרט" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ItzikElgart<br>איציק (יצחק) אלגרט</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ItaiSviraski.jpg" alt="איתי סבירסקי">
+<figcaption>ItaiSviraski<br>איתי סבירסקי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AlexDanzig.jpg" alt="אלכס דנציג" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AlexDanzig<br>אלכס דנציג</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/MichelleNissenbaum.jpg" alt="מישל ניסנבאום">
+<figcaption>MichelleNissenbaum<br>מישל ניסנבאום</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OferCalderon.jpg" alt="עופר קלדרון" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OferCalderon<br>עופר קלדרון</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/NaamaLevy.jpg" alt="נעמה לוי">
+<figcaption>NaamaLevy<br>נעמה לוי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/YosefSharabi.jpg " alt="אלי שרעבי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">YosefSharabi<br>אלי שרעבי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AlmogSarusi.jpg" alt="אלמוג סרוסי">
+<figcaption>AlmogSarusi<br>אלמוג סרוסי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/EliSharabi.jpg" alt="יוסי שרעבי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">EliSharabi<br>יוסי שרעבי</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/24/nimrodc.jpeg" alt="נמרוד כהן">
+<figcaption>nimrodc<br>נמרוד כהן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/MatanTsengaukar.jpg" alt="מתן צנגאוקר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">MatanTsengaukar<br>מתן צנגאוקר</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/29/ronb.jpeg" alt="רון בנימין">
+<figcaption>ronb<br>רון בנימין</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/KetSiegel.jpg" alt="קית' סיגל" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">KetSiegel<br>קית' סיגל</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AndreiKozlov.jpg" alt="אנדרי קוזלוב">
+<figcaption>AndreiKozlov<br>אנדרי קוזלוב</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/YairHoren.jpg" alt="יאיר הורן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">YairHoren<br>יאיר הורן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/MatanAngestrel.jpg" alt="מתן אנגרסט">
+<figcaption>MatanAngestrel<br>מתן אנגרסט</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/EitanHoran.jpg" alt="איתן הורן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">EitanHoran<br>איתן הורן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ElikimLibman.jpg" alt="אליקים ליבמן">
+<figcaption>ElikimLibman<br>אליקים ליבמן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/YosefHamisZiadna.jpg" alt="יוסף חמיס אלזיאדנה" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">YosefHamisZiadna<br>יוסף חמיס אלזיאדנה</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/eitanMor.jpg" alt="איתן מור">
+<figcaption>eitanMor<br>איתן מור</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/HamzaZiadna.jpg" alt="חמזה אלזיאדנה" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">HamzaZiadna<br>חמזה אלזיאדנה</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/DanielaGilboa.jpg" alt="דניאלה גלבוע">
+<figcaption>DanielaGilboa<br>דניאלה גלבוע</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ArbelYehud.jpg" alt="ארבל יהוד" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ArbelYehud<br>ארבל יהוד</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/KarinaAriev.jpg" alt="קארינה ארייב">
+<figcaption>KarinaAriev<br>קארינה ארייב</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/DolevYehud.jpg" alt="דולב יהוד" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">DolevYehud<br>דולב יהוד</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/EdenShteoi.jpg" alt="עידן שתיוי">
+<figcaption>EdenShteoi<br>עידן שתיוי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ArielKonio.jpg" alt="אריאל קוניו" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ArielKonio<br>אריאל קוניו</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/28/itayhennn.jfif" alt="איתי חן">
+<figcaption>itayhennn<br>איתי חן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/DavidKonio.jpg" alt="דוד קוניו" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">DavidKonio<br>דוד קוניו</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/BipinJoshi.jpg" alt="ביפין ג'ושי">
+<figcaption>BipinJoshi<br>ביפין ג'ושי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/GadiMozes.jpg" alt="גדי מוזס" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">GadiMozes<br>גדי מוזס</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/TamirNimrodi.jpg" alt="תמיר נמרודי">
+<figcaption>TamirNimrodi<br>תמיר נמרודי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/05/YairJacob.jpg" alt="יאיר יעקב" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">YairJacob<br>יאיר יעקב</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/05/SagiDekelChen.jpg" alt="שגיא דקל חן">
+<figcaption>SagiDekelChen<br>שגיא דקל חן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OdedLifshitz.jpg" alt="עודד ליפשיץ" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OdedLifshitz<br>עודד ליפשיץ</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/HaimPeri.jpg" alt="חיים פרי">
+<figcaption>HaimPeri<br>חיים פרי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/NadavPoplewell.jpg" alt="נדב פופלוול" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">NadavPoplewell<br>נדב פופלוול</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/LiorRudaif.jpg" alt="ליאור רודאיף">
+<figcaption>LiorRudaif<br>ליאור רודאיף</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OhadBenAmi.jpg" alt="אוהד בן עמי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OhadBenAmi<br>אוהד בן עמי</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/26/idanalex.jpeg" alt="עידן אלכסנדר">
+<figcaption>idanalex<br>עידן אלכסנדר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/IgavBuhshtev.jpg" alt="יגב בוכשטב" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">IgavBuhshtev<br>יגב בוכשטב</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OmriMiren.jpg" alt="עמרי מירן">
+<figcaption>OmriMiren<br>עמרי מירן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/YoramMetzger.jpg" alt="יורם מצגר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">YoramMetzger<br>יורם מצגר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/Tzachiidan.jpg" alt="צחי עידן">
+<figcaption>Tzachiidan<br>צחי עידן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OhadYaahalomi.jpg" alt="אוהד יהלומי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OhadYaahalomi<br>אוהד יהלומי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OrionHernandezRado.jpg" alt="אוריון הרננדס ראדו">
+<figcaption>OrionHernandezRado<br>אוריון הרננדס ראדו</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/TalShoham.jpg" alt="טל שוהם" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">TalShoham<br>טל שוהם</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/RanGoyali.jpg" alt="רן גוילי">
+<figcaption>RanGoyali<br>רן גוילי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/FernandoMarman.jpg" alt="פרננדו מרמן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">FernandoMarman<br>פרננדו מרמן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ElkanaBuhbut.jpg" alt="אלקנה בוחבוט">
+<figcaption>ElkanaBuhbut<br>אלקנה בוחבוט</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il///2023/11/05/LuisHerrNarberto.jpg" alt="נורברטו לואיס הר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">LuisHerrNarberto<br>נורברטו לואיס הר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OmarNautra.jpg" alt="עומר נאוטרה">
+<figcaption>OmarNautra<br>עומר נאוטרה</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/30/hishamabusid.jpg" alt="הישאם א-סייד" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">hishamabusid<br>הישאם א-סייד</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AlonAhal.jpg" alt="אלון אהל">
+<figcaption>AlonAhal<br>אלון אהל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il///2023/11/30/averamangisto.jpg" alt="אברה מנגיסטו" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">averamangisto<br>אברה מנגיסטו</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/DoronShtainberher.jpg" alt="דורון שטיינברכר">
+<figcaption>DoronShtainberher<br>דורון שטיינברכר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/SashaTrupanov.jpg" alt="סשה (אלכסנדר) טרופנוב" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">SashaTrupanov<br>סשה (אלכסנדר) טרופנוב</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/GuyDalalGilboa.jpg" alt="גיא גלבוע דלאל">
+<figcaption>GuyDalalGilboa<br>גיא גלבוע דלאל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AmiramCooper.jpg" alt="עמירם קופר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AmiramCooper<br>עמירם קופר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/EviatarDadid.jpg" alt="אביתר דוד">
+<figcaption>EviatarDadid<br>אביתר דוד</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/EdenJerusalem.jpg" alt="עדן ירושלמי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">EdenJerusalem<br>עדן ירושלמי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/RomiGonen.jpg" alt="רומי גונן">
+<figcaption>RomiGonen<br>רומי גונן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AliaCohen.jpg" alt="אליה כהן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AliaCohen<br>אליה כהן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ShlomoManzur.jpg" alt="שלמה מנצור">
+<figcaption>ShlomoManzur<br>שלמה מנצור</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ItaiSviraski.jpg" alt="איתי סבירסקי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ItaiSviraski<br>איתי סבירסקי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/LiriAlbag.jpg" alt="לירי אלבג">
+<figcaption>LiriAlbag<br>לירי אלבג</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/MichelleNissenbaum.jpg" alt="מישל ניסנבאום" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">MichelleNissenbaum<br>מישל ניסנבאום</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OrielBaruh.jpg" alt="אוריאל ברוך">
+<figcaption>OrielBaruh<br>אוריאל ברוך</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/NaamaLevy.jpg" alt="נעמה לוי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">NaamaLevy<br>נעמה לוי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/RomBreslavsky.jpg" alt="רום ברסלבסקי">
+<figcaption>RomBreslavsky<br>רום ברסלבסקי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AlmogSarusi.jpg" alt="אלמוג סרוסי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AlmogSarusi<br>אלמוג סרוסי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/HirshGoldberg.jpg" alt="הרש גולדברג פולין">
+<figcaption>HirshGoldberg<br>הרש גולדברג פולין</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/24/nimrodc.jpeg" alt="נמרוד כהן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">nimrodc<br>נמרוד כהן</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/05/MaximHarkin.jpg" alt="מקסים הרקין">
+<figcaption>MaximHarkin<br>מקסים הרקין</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/29/ronb.jpeg" alt="רון בנימין" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ronb<br>רון בנימין</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AgamBerger.jpg" alt="אגם ברגר">
+<figcaption>AgamBerger<br>אגם ברגר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AndreiKozlov.jpg" alt="אנדרי קוזלוב" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AndreiKozlov<br>אנדרי קוזלוב</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/12/07/levinson.png" alt="שי לוינסון">
+<figcaption>levinson<br>שי לוינסון</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/MatanAngestrel.jpg" alt="מתן אנגרסט" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">MatanAngestrel<br>מתן אנגרסט</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/BarKupershtain.jpg" alt="בר קופרשטיין">
+<figcaption>BarKupershtain<br>בר קופרשטיין</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ElikimLibman.jpg" alt="אליקים ליבמן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ElikimLibman<br>אליקים ליבמן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OmershemTov.jpg" alt="עומר שם טוב">
+<figcaption>OmershemTov<br>עומר שם טוב</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/eitanMor.jpg" alt="איתן מור" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">eitanMor<br>איתן מור</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/FarhanAlkadi.jpg" alt="קאיד פרחאן אלקאדי">
+<figcaption>FarhanAlkadi<br>קאיד פרחאן אלקאדי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/DanielaGilboa.jpg" alt="דניאלה גלבוע" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">DanielaGilboa<br>דניאלה גלבוע</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/SegevKalphon.jpg" alt="שגב כלפון">
+<figcaption>SegevKalphon<br>שגב כלפון</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/KarinaAriev.jpg" alt="קארינה ארייב" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">KarinaAriev<br>קארינה ארייב</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OmerVankert.jpg" alt="עומר ונקרט">
+<figcaption>OmerVankert<br>עומר ונקרט</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/EdenShteoi.jpg" alt="עידן שתיוי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">EdenShteoi<br>עידן שתיוי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OrLevi.jpg" alt="אור לוי">
+<figcaption>OrLevi<br>אור לוי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/28/itayhennn.jfif" alt="איתי חן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">itayhennn<br>איתי חן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OriDanino.jpg" alt="אורי דנינו">
+<figcaption>OriDanino<br>אורי דנינו</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/BipinJoshi.jpg" alt="ביפין ג'ושי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">BipinJoshi<br>ביפין ג'ושי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AlexLibnov.jpg" alt="אלכס לובנוב">
+<figcaption>AlexLibnov<br>אלכס לובנוב</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/TamirNimrodi.jpg" alt="תמיר נמרודי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">TamirNimrodi<br>תמיר נמרודי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AmitBuskila.jpg" alt="עמית אסתר בוסקילה">
+<figcaption>AmitBuskila<br>עמית אסתר בוסקילה</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/05/SagiDekelChen.jpg" alt="שגיא דקל חן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">SagiDekelChen<br>שגיא דקל חן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ShlomiZiv.jpg" alt="שלומי זיו">
+<figcaption>ShlomiZiv<br>שלומי זיו</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/HaimPeri.jpg" alt="חיים פרי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">HaimPeri<br>חיים פרי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AlmogMeirJan.jpg" alt="אלמוג מאיר ג'אן">
+<figcaption>AlmogMeirJan<br>אלמוג מאיר ג'אן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/LiorRudaif.jpg" alt="ליאור רודאיף" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">LiorRudaif<br>ליאור רודאיף</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/YosefOhana.jpg" alt="יוסף אוחנה">
+<figcaption>YosefOhana<br>יוסף אוחנה</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/26/idanalex.jpeg" alt="עידן אלכסנדר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">idanalex<br>עידן אלכסנדר</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/23/Man_Silhouette.jpg" alt="מוחמד אל אטרש">
+<figcaption>Man_Silhouette<br>מוחמד אל אטרש</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OmriMiren.jpg" alt="עמרי מירן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OmriMiren<br>עמרי מירן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/HananYvlonka.jpg" alt="חנן יבלונקה">
+<figcaption>HananYvlonka<br>חנן יבלונקה</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/Tzachiidan.jpg" alt="צחי עידן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">Tzachiidan<br>צחי עידן</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/12/07/emily.png" alt="אמילי  דמארי">
+<figcaption>emily<br>אמילי  דמארי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OrionHernandezRado.jpg" alt="אוריון הרננדס ראדו" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OrionHernandezRado<br>אוריון הרננדס ראדו</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/12/15/itzikgelerneter.jpg" alt="יצחק (איציק) גלרנטר">
+<figcaption>itzikgelerneter<br>יצחק (איציק) גלרנטר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/RanGoyali.jpg" alt="רן גוילי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">RanGoyali<br>רן גוילי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/EladKazir.jpg" alt="אלעד קציר">
+<figcaption>EladKazir<br>אלעד קציר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ElkanaBuhbut.jpg" alt="אלקנה בוחבוט" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ElkanaBuhbut<br>אלקנה בוחבוט</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/TamirAdar.jpg" alt="תמיר אדר">
+<figcaption>TamirAdar<br>תמיר אדר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OmarNautra.jpg" alt="עומר נאוטרה" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OmarNautra<br>עומר נאוטרה</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/YairHoren.jpg" alt="יאיר הורן">
+<figcaption>YairHoren<br>יאיר הורן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AlonAhal.jpg" alt="אלון אהל" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AlonAhal<br>אלון אהל</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/EitanHoran.jpg" alt="איתן הורן">
+<figcaption>EitanHoran<br>איתן הורן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/DoronShtainberher.jpg" alt="דורון שטיינברכר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">DoronShtainberher<br>דורון שטיינברכר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/KetSiegel.jpg" alt="קית' סיגל">
+<figcaption>KetSiegel<br>קית' סיגל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/GuyDalalGilboa.jpg" alt="גיא גלבוע דלאל" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">GuyDalalGilboa<br>גיא גלבוע דלאל</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/30/hishamabusid.jpg" alt="הישאם א-סייד">
+<figcaption>hishamabusid<br>הישאם א-סייד</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/EviatarDadid.jpg" alt="אביתר דוד" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">EviatarDadid<br>אביתר דוד</figcaption>
+<img class="alive" src="https://img.mako.co.il///2023/11/30/averamangisto.jpg" alt="אברה מנגיסטו">
+<figcaption>averamangisto<br>אברה מנגיסטו</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/RomiGonen.jpg" alt="רומי גונן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">RomiGonen<br>רומי גונן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/YoramMetzger.jpg" alt="יורם מצגר">
+<figcaption>YoramMetzger<br>יורם מצגר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ShlomoManzur.jpg" alt="שלמה מנצור" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ShlomoManzur<br>שלמה מנצור</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OdedLifshitz.jpg" alt="עודד ליפשיץ">
+<figcaption>OdedLifshitz<br>עודד ליפשיץ</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/LiriAlbag.jpg" alt="לירי אלבג" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">LiriAlbag<br>לירי אלבג</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AvrahamMondar.jpg" alt="אברהם מונדר">
+<figcaption>AvrahamMondar<br>אברהם מונדר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OrielBaruh.jpg" alt="אוריאל ברוך" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OrielBaruh<br>אוריאל ברוך</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/YosefSharabi.jpg " alt="אלי שרעבי">
+<figcaption>YosefSharabi<br>אלי שרעבי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/RomBreslavsky.jpg" alt="רום ברסלבסקי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">RomBreslavsky<br>רום ברסלבסקי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/EliSharabi.jpg" alt="יוסי שרעבי">
+<figcaption>EliSharabi<br>יוסי שרעבי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/HirshGoldberg.jpg" alt="הרש גולדברג פולין" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">HirshGoldberg<br>הרש גולדברג פולין</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/CarmelGat.jpg" alt="כרמל גת">
+<figcaption>CarmelGat<br>כרמל גת</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/05/MaximHarkin.jpg" alt="מקסים הרקין" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">MaximHarkin<br>מקסים הרקין</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/GadiMozes.jpg" alt="גדי מוזס">
+<figcaption>GadiMozes<br>גדי מוזס</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AgamBerger.jpg" alt="אגם ברגר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AgamBerger<br>אגם ברגר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ArbelYehud.jpg" alt="ארבל יהוד">
+<figcaption>ArbelYehud<br>ארבל יהוד</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/12/07/levinson.png" alt="שי לוינסון" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">levinson<br>שי לוינסון</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/DolevYehud.jpg" alt="דולב יהוד">
+<figcaption>DolevYehud<br>דולב יהוד</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/BarKupershtain.jpg" alt="בר קופרשטיין" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">BarKupershtain<br>בר קופרשטיין</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ArielKonio.jpg" alt="אריאל קוניו">
+<figcaption>ArielKonio<br>אריאל קוניו</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OmershemTov.jpg" alt="עומר שם טוב" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OmershemTov<br>עומר שם טוב</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/DavidKonio.jpg" alt="דוד קוניו">
+<figcaption>DavidKonio<br>דוד קוניו</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/FarhanAlkadi.jpg" alt="קאיד פרחאן אלקאדי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">FarhanAlkadi<br>קאיד פרחאן אלקאדי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OhadYaahalomi.jpg" alt="אוהד יהלומי">
+<figcaption>OhadYaahalomi<br>אוהד יהלומי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/SegevKalphon.jpg" alt="שגב כלפון" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">SegevKalphon<br>שגב כלפון</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OhadBenAmi.jpg" alt="אוהד בן עמי">
+<figcaption>OhadBenAmi<br>אוהד בן עמי</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OmerVankert.jpg" alt="עומר ונקרט" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OmerVankert<br>עומר ונקרט</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AmiramCooper.jpg" alt="עמירם קופר">
+<figcaption>AmiramCooper<br>עמירם קופר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OrLevi.jpg" alt="אור לוי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OrLevi<br>אור לוי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AvitanOr.jpg" alt="אבינתן אור">
+<figcaption>AvitanOr<br>אבינתן אור</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OriDanino.jpg" alt="אורי דנינו" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OriDanino<br>אורי דנינו</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/Noaargmni.jpg" alt="נועה ארגמני">
+<figcaption>Noaargmni<br>נועה ארגמני</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AlexLibnov.jpg" alt="אלכס לובנוב" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AlexLibnov<br>אלכס לובנוב</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/NadavPoplewell.jpg" alt="נדב פופלוול">
+<figcaption>NadavPoplewell<br>נדב פופלוול</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AmitBuskila.jpg" alt="עמית אסתר בוסקילה" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AmitBuskila<br>עמית אסתר בוסקילה</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/YosefHamisZiadna.jpg" alt="יוסף חמיס אלזיאדנה">
+<figcaption>YosefHamisZiadna<br>יוסף חמיס אלזיאדנה</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ShlomiZiv.jpg" alt="שלומי זיו" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ShlomiZiv<br>שלומי זיו</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/HamzaZiadna.jpg" alt="חמזה אלזיאדנה">
+<figcaption>HamzaZiadna<br>חמזה אלזיאדנה</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AlmogMeirJan.jpg" alt="אלמוג מאיר ג'אן" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AlmogMeirJan<br>אלמוג מאיר ג'אן</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/MatanTsengaukar.jpg" alt="מתן צנגאוקר">
+<figcaption>MatanTsengaukar<br>מתן צנגאוקר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/YosefOhana.jpg" alt="יוסף אוחנה" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">YosefOhana<br>יוסף אוחנה</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/GaliBerman.jpg" alt="גלי ברמן">
+<figcaption>GaliBerman<br>גלי ברמן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/23/Man_Silhouette.jpg" alt="מוחמד אל אטרש" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">Man_Silhouette<br>מוחמד אל אטרש</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ZivBerman.jpg" alt="זיו ברמן">
+<figcaption>ZivBerman<br>זיו ברמן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/HananYvlonka.jpg" alt="חנן יבלונקה" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">HananYvlonka<br>חנן יבלונקה</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/SashaTrupanov.jpg" alt="סשה (אלכסנדר) טרופנוב">
+<figcaption>SashaTrupanov<br>סשה (אלכסנדר) טרופנוב</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/12/07/emily.png" alt="אמילי  דמארי" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">emily<br>אמילי  דמארי</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ItzikElgart.jpg" alt="איציק (יצחק) אלגרט">
+<figcaption>ItzikElgart<br>איציק (יצחק) אלגרט</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/12/15/itzikgelerneter.jpg" alt="יצחק (איציק) גלרנטר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">itzikgelerneter<br>יצחק (איציק) גלרנטר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/AlexDanzig.jpg" alt="אלכס דנציג">
+<figcaption>AlexDanzig<br>אלכס דנציג</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/DrorOr.jpg" alt="דרור אור" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">DrorOr<br>דרור אור</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/FernandoMarman.jpg" alt="פרננדו מרמן">
+<figcaption>FernandoMarman<br>פרננדו מרמן</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/CarmelGat.jpg" alt="כרמל גת" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">CarmelGat<br>כרמל גת</figcaption>
+<img class="alive" src="https://img.mako.co.il///2023/11/05/LuisHerrNarberto.jpg" alt="נורברטו לואיס הר">
+<figcaption>LuisHerrNarberto<br>נורברטו לואיס הר</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/TamirAdar.jpg" alt="תמיר אדר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">TamirAdar<br>תמיר אדר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/OferCalderon.jpg" alt="עופר קלדרון">
+<figcaption>OferCalderon<br>עופר קלדרון</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AvrahamMondar.jpg" alt="אברהם מונדר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AvrahamMondar<br>אברהם מונדר</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/29/yardenbibas.jpg" alt="ירדן ביבס">
+<figcaption>yardenbibas<br>ירדן ביבס</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AvitanOr.jpg" alt="אבינתן אור" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AvitanOr<br>אבינתן אור</figcaption>
+<img class="alive" src="https://img.mako.co.il/2023/11/26/shiri.jpeg" alt="שירי ביבס">
+<figcaption>shiri<br>שירי ביבס</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/Noaargmni.jpg" alt="נועה ארגמני" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">Noaargmni<br>נועה ארגמני</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/ArielBibs.jpg" alt="אריאל ביבס">
+<figcaption>ArielBibs<br>אריאל ביבס</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/EladKazir.jpg" alt="אלעד קציר" style="border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">EladKazir<br>אלעד קציר</figcaption>
+<img class="alive" src="https://img.mako.co.il//2023/11/05/KafirBiebs.jpg" alt="כפיר ביבס">
+<figcaption>KafirBiebs<br>כפיר ביבס</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/12/02/AsafHamami.jpg" alt="אל"מ אסף חממי ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AsafHamami<br>אל"מ אסף חממי ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/12/02/AsafHamami.jpg" alt="אל"מ אסף חממי ז"ל">
+<figcaption>AsafHamami<br>אל"מ אסף חממי ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/GuyIluz.jpg" alt="גיא אילוז ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">GuyIluz<br>גיא אילוז ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/GuyIluz.jpg" alt="גיא אילוז ז"ל">
+<figcaption>GuyIluz<br>גיא אילוז ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/JonathanSmareno.jpg" alt="יונתן סמרנו ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">JonathanSmareno<br>יונתן סמרנו ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/JonathanSmareno.jpg" alt="יונתן סמרנו ז"ל">
+<figcaption>JonathanSmareno<br>יונתן סמרנו ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/28/kiril.jpeg" alt="סמל קיריל ברודסקי ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">kiril<br>סמל קיריל ברודסקי ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/28/kiril.jpeg" alt="סמל קיריל ברודסקי ז"ל">
+<figcaption>kiril<br>סמל קיריל ברודסקי ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/InbarHaiman.jpg" alt="ענבר היימן ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">InbarHaiman<br>ענבר היימן ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/InbarHaiman.jpg" alt="ענבר היימן ז"ל">
+<figcaption>InbarHaiman<br>ענבר היימן ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/30/oronshaul.jpg" alt="סמ"ר אורון שאול ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">oronshaul<br>סמ"ר אורון שאול ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/30/oronshaul.jpg" alt="סמ"ר אורון שאול ז"ל">
+<figcaption>oronshaul<br>סמ"ר אורון שאול ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/28/shaked-dahan.jpeg" alt="סמל שקד דהן ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">shaked-dahan<br>סמל שקד דהן ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/28/shaked-dahan.jpeg" alt="סמל שקד דהן ז"ל">
+<figcaption>shaked-dahan<br>סמל שקד דהן ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/RonenEngel.jpg" alt="רונן אנגל ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">RonenEngel<br>רונן אנגל ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/RonenEngel.jpg" alt="רונן אנגל ז"ל">
+<figcaption>RonenEngel<br>רונן אנגל ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/AvivAzili.jpg" alt="אביב אצילי ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">AvivAzili<br>אביב אצילי ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/AvivAzili.jpg" alt="אביב אצילי ז"ל">
+<figcaption>AvivAzili<br>אביב אצילי ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/MiaGoren.jpg" alt="מיה גורן ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">MiaGoren<br>מיה גורן ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/MiaGoren.jpg" alt="מיה גורן ז"ל">
+<figcaption>MiaGoren<br>מיה גורן ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/JudyWeinstein.jpg" alt="ג'ודי וינשטיין-חגי ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">JudyWeinstein<br>ג'ודי וינשטיין-חגי ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/JudyWeinstein.jpg" alt="ג'ודי וינשטיין-חגי ז"ל">
+<figcaption>JudyWeinstein<br>ג'ודי וינשטיין-חגי ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/ArieZalmanovich.jpg" alt="אריה זלמנוביץ' ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">ArieZalmanovich<br>אריה זלמנוביץ' ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/ArieZalmanovich.jpg" alt="אריה זלמנוביץ' ז"ל">
+<figcaption>ArieZalmanovich<br>אריה זלמנוביץ' ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/05/GadiHagai.jpg" alt="גדי חגי ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">GadiHagai<br>גדי חגי ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/05/GadiHagai.jpg" alt="גדי חגי ז"ל">
+<figcaption>GadiHagai<br>גדי חגי ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/RavidKatz.jpg" alt="רביד כץ ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">RavidKatz<br>רביד כץ ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/RavidKatz.jpg" alt="רביד כץ ז"ל">
+<figcaption>RavidKatz<br>רביד כץ ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/12/01/margalit.jfif" alt="אליהו מרגלית ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">margalit<br>אליהו מרגלית ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/12/01/margalit.jfif" alt="אליהו מרגלית ז"ל">
+<figcaption>margalit<br>אליהו מרגלית ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/OrenGoldin.jpg" alt="אורן גולדין ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">OrenGoldin<br>אורן גולדין ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/OrenGoldin.jpg" alt="אורן גולדין ז"ל">
+<figcaption>OrenGoldin<br>אורן גולדין ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/TalHaimi.jpg" alt="טל חיימי ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">TalHaimi<br>טל חיימי ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/TalHaimi.jpg" alt="טל חיימי ז"ל">
+<figcaption>TalHaimi<br>טל חיימי ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/28/tomerahimas.jfif" alt="סמ"ר תומר אחימס ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">tomerahimas<br>סמ"ר תומר אחימס ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/28/tomerahimas.jfif" alt="סמ"ר תומר אחימס ז"ל">
+<figcaption>tomerahimas<br>סמ"ר תומר אחימס ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/30/goldinhadar.jpg" alt="סגן הדר גולדין ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">goldinhadar<br>סגן הדר גולדין ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/30/goldinhadar.jpg" alt="סגן הדר גולדין ז"ל">
+<figcaption>goldinhadar<br>סגן הדר גולדין ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/JoshuaLuitoMollel.jpg" alt="ג'ושוע לויטו מולל ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">JoshuaLuitoMollel<br>ג'ושוע לויטו מולל ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/JoshuaLuitoMollel.jpg" alt="ג'ושוע לויטו מולל ז"ל">
+<figcaption>JoshuaLuitoMollel<br>ג'ושוע לויטו מולל ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/eitanLevy.jpg" alt="איתן לוי ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">eitanLevy<br>איתן לוי ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/eitanLevy.jpg" alt="איתן לוי ז"ל">
+<figcaption>eitanLevy<br>איתן לוי ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/24/sahar.jpeg" alt="סהר ברוך ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">sahar<br>סהר ברוך ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/24/sahar.jpeg" alt="סהר ברוך ז"ל">
+<figcaption>sahar<br>סהר ברוך ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il//2023/11/05/IlanVais.jpg" alt="אילן וייס ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">IlanVais<br>אילן וייס ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il//2023/11/05/IlanVais.jpg" alt="אילן וייס ז"ל">
+<figcaption>IlanVais<br>אילן וייס ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/24/Pic400.png" alt="עפרה קידר ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">Pic400<br>עפרה קידר ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/24/Pic400.png" alt="עפרה קידר ז"ל">
+<figcaption>Pic400<br>עפרה קידר ז"ל</figcaption>
 </figure>
 
 <figure>
-<img src="https://img.mako.co.il/2023/11/24/shanilo400.jpeg" alt="שני  לוק ז"ל" style="border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);">
-<figcaption style="font-family: Arial, sans-serif; font-size: 10px;">shanilo400<br>שני  לוק ז"ל</figcaption>
+<img class="dead" src="https://img.mako.co.il/2023/11/24/shanilo400.jpeg" alt="שני  לוק ז"ל">
+<figcaption>shanilo400<br>שני  לוק ז"ל</figcaption>
 </figure>
 
 </div>

@@ -225,7 +225,6 @@ center-content{
   #count-wrapper {
     width: 100%;
   }
-    /* Styles for mobile screens */
     .center-content {
       display: flex; /* Use flexbox to layout the children */
       flex-wrap: wrap; /* Allow the items to wrap onto multiple lines */

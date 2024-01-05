@@ -73,10 +73,13 @@ def  get_resource():
         html_content += ".right\n{display: flex;\nflex-wrap: wrap;\njustify-content: center;\nwidth: 80%;\npadding: 1px;\nbox-sizing: border-box;\n}\n"
         html_content += "\nfigure\n{width: 5vw;\nmax-width: 80px;\n text-align: center; \nmargin: 0;\n}\n"
         html_content += "\nimg {\nwidth: auto;\nheight:auto;\nmax-width: 70%;\n border: 5vw solid #FFD700;\n border-radius: 50%;\nbox-shadow: 0 0 1vw #FFD700;\n}\n"
-        html_content += "\nfigcaption {\nmargin-top: 0vw;\n font-size: 5vw;\n }\n"
+        html_content += "\nfigcaption {\nmargin-top: 0vw;\nfont-family: 'Arial, sans-serif';\nfont-size: '10px'; }\n";
+        html_content += "\n@media screen and (max-width: 768px) {\nfigcaption \n{font-size: '5px'}\n}\n"
         html_content += "\n.container {\ndisplay: flex;\nflex-wrap: wrap;\njustify-content: space-between;\n}\n"
         html_content += "\n.left{\nwidth: 20%;\npadding: 1px;\nbox-sizing: border-box;\n}\n"
-        html_content += "\n.left p \n{margin: 0;\n}\n"
+        html_content += "\n.left p \n{margin: 0;\nfont-family:'Arial';\nfont-size:3vw;}\n"
+        html_content += "\n.alive\n{\nborder: 10px solid #FFD700;\n border-radius: 50%;\n box-shadow: 0 0 10px #FFD700;\n}\n"
+        html_content += "\n.dead\n{\nborder: 10px solid black;\nborder-radius: 0;\nbox-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);\n}\n"
         html_content += "\n</style>\n</head>\n<body>\n<div class='container'>\n"
         html_content += "<div class='right'>\n"
         for img in img_tags:
@@ -86,25 +89,24 @@ def  get_resource():
             if not src.lower().endswith('.svg'):
                 alt = img.get('alt', '')
                 print(alt)
+                classname = ''
                 if "ז\"ל" in alt:
                     print("black")
-                    img['style'] = "border: 10px solid black; border-radius: 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);"
+                    classname = 'dead'
                     black_images += 1
                 else:
                     print("yellow")
-                    img['style'] = "border: 10px solid #FFD700; border-radius: 50%; box-shadow: 0 0 10px #FFD700;"  # Yellow border with a slight glow and circular shape
+                    classname = 'alive'
                     yellow_images += 1
                 filename = os.path.splitext(os.path.basename(src))[0]
-                html_content += f'<figure>\n<img src="{src}" alt="{alt}" style="{img["style"]}">\n'
-                font_family = "Arial, sans-serif"  # Change this to your desired font family
-                font_size = "10px"  # Change this to your desired font size
+                html_content += f'<figure>\n<img class="{classname}" src="{src}" alt="{alt}">\n'
                 # Assuming f is your file object or file handler
-                html_content += f'<figcaption style="font-family: {font_family}; font-size: {font_size};">{filename}<br>{alt}</figcaption>\n</figure>\n\n'
+                html_content += f'<figcaption>{filename}<br>{alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
         totalall = "<div class='left'>\n"
-        totalall +=  f'<p font-family="Arial" style="font-size:3vw;color:red;">Kidnapped: {total_images}</p>\n'
-        totalall += f'<p font-family="Arial" style="font-size:3vw;color:black;">Murdered: {black_images}</p>\n'
-        totalall +=  f'<p font-family="Arial" style="font-size:3vw;color:#FFD700;">Alive: {yellow_images}</p>\n'
+        totalall +=  f'<p color:red;">Kidnapped: {total_images}</p>\n'
+        totalall += f'<p color:black;">Murdered: {black_images}</p>\n'
+        totalall +=  f'<p color:#FFD700;">Alive: {yellow_images}</p>\n'
         totalall += "</div>\n"
         html_content = insert_after_substring( html_content , "<div class='container'>\n", totalall)
         html_content += "\n</div>\n</body>\n</html>"
