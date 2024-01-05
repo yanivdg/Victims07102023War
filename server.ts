@@ -17,16 +17,16 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
   // Use the error logging middleware
-  //server.use(logErrors);
+  server.use(logErrors);
 
-  //function logErrors(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+  function logErrors(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
     // Log the error to a file or any logging service
     // For demonstration, this logs to console and writes to a file named 'error.log'
-   // console.error('Error:', err);
-   // const fs = require('fs');
-   // fs.appendFileSync('error.log', `${new Date().toISOString()} - Error: ${err.stack}\n`);
-   // next(err);
-  //}
+    console.error('Error:', err);
+    const fs = require('fs');
+    fs.appendFileSync('error.log', `${new Date().toISOString()} - Error: ${err.stack}\n`);
+    next(err);
+  }
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });

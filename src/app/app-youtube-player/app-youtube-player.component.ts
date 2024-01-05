@@ -1,16 +1,17 @@
 import { Component, ElementRef, OnInit,AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {LogService} from '../service/log.service';
 @Component({
     selector: 'app-youtube-player',
     templateUrl: './app-youtube-player.component.html',
     styleUrl: './app-youtube-player.component.css'
 })
 
-export class AppYoutubePlayerComponent implements AfterViewInit {
+export class AppYoutubePlayerComponent implements OnInit,AfterViewInit {
     width: number | undefined;
     height: number | undefined;
   
-    constructor(private el: ElementRef,private route: ActivatedRoute) {}
+    constructor(private el: ElementRef,private route: ActivatedRoute,private logService:LogService) {}
      playerVars:any;
     player: YT.Player | null = null;  // Initialize to null
     videoId = '9eDzojXuMZY'; // replace with your video ID
@@ -38,18 +39,27 @@ export class AppYoutubePlayerComponent implements AfterViewInit {
       }
       
       playVideoSound() {
-        // Unmute the player:
-        this.playerVars = {
-          controls: 0,  // This disables the player controls
-          loop: 1,      // This enables looping of the video
-          autoplay: 1,  // This enables autoplay of the video
-          disablekb: 1,  // This disables keyboard controls
-          mute: 1,
-          playlist: this.videoId  // This sets the playlist to the same video ID
-      };
-      this.player?.playVideo();
-      }      
+        try
+          {
+            // Unmute the player:
+            this.playerVars = {
+                controls: 0,  // This disables the player controls
+                loop: 1,      // This enables looping of the video
+                autoplay: 1,  // This enables autoplay of the video
+                disablekb: 1,  // This disables keyboard controls
+                mute: 1,
+                playlist: this.videoId  // This sets the playlist to the same video ID
+            };
+          this.player?.playVideo();
+      }
+        catch(error:any)
+      {
+        this.logService.logToServer(`Error occurred: ${error.message}`);
+      }
+  }      
       cancelPlayback(){
+        try
+        {
                 // Mute the player:
                 this.playerVars = {
                   controls: 0,  // This disables the player controls
@@ -59,5 +69,10 @@ export class AppYoutubePlayerComponent implements AfterViewInit {
                   mute:0,
                   playlist: this.videoId  // This sets the playlist to the same video ID
               };
+            }
+            catch(error:any)
+            {
+              this.logService.logToServer(`Error occurred: ${error.message}`);
+            }
       }
 }
