@@ -73,7 +73,7 @@ def  get_resource():
         html_content += ".right\n{display: flex;\nflex-wrap: wrap;\njustify-content: center;\nwidth: 80%;\npadding: 1px;\nbox-sizing: border-box;\n}\n"
         html_content += "\nfigure\n{width: 5vw;\nmax-width: 80px;\n text-align: center; \nmargin: 0;\n}\n"
         html_content += "\nimg {\nwidth: auto;\nheight:auto;\nmax-width: 70%;\n border: 5vw solid #FFD700;\n border-radius: 50%;\nbox-shadow: 0 0 1vw #FFD700;\n}\n"
-        html_content += "\nfigcaption {\nmargin-top: 0vw;\nfont-family: 'Arial, sans-serif';\nfont-size: '10px'; }\n";
+        html_content += "\nfigcaption {\nmargin-top: 0vw;\nfont-family: 'Arial, sans-serif';\nfont-size: '10px'; \nword-wrap: break-word;\noverflow: hidden;\ndisplay: block;\n}\n"; 
         html_content += "\n@media screen and (max-width: 768px) {\nfigcaption \n{font-size: '5px'}\n}\n"
         html_content += "\n.container {\ndisplay: flex;\nflex-wrap: wrap;\njustify-content: space-between;\n}\n"
         html_content += "\n.left{\nwidth: 20%;\npadding: 1px;\nbox-sizing: border-box;\n}\n"
