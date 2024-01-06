@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit,AfterViewInit } from '@angular/core';
+import { Component, ElementRef,ViewChild, OnInit,AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {LogService} from '../service/log.service';
 @Component({
@@ -8,36 +8,46 @@ import {LogService} from '../service/log.service';
 })
 
 export class AppYoutubePlayerComponent implements OnInit,AfterViewInit {
-    width: number | undefined;
-    height: number | undefined;
+    YTwidth: number | undefined;
+    YTheight: number | undefined;
   
     constructor(private el: ElementRef,private route: ActivatedRoute,private logService:LogService) {}
-     playerVars:any;
+    playerVars:any;
     player: YT.Player | null = null;  // Initialize to null
     videoId = '9eDzojXuMZY'; // replace with your video ID
-     
-    
-
+    isMuted = false;
+    isPlayed = false;
+    //@ViewChild('player') player!: YouTubePlayer;
     ngOnInit():void{
         // Retrieving parameters in the child component
         this.route.queryParams.subscribe(params => {
           const userchoice = params['mute'];
           if(userchoice > 0)
+          {
             this.playVideoSound();
+          }
           else this.cancelPlayback();
+          this.isMuted = true;
         });
     }
     ngAfterViewInit() {
          const div = this.el.nativeElement.querySelector('.youtubewrap');
         const computedStyle = window.getComputedStyle(div);
   
-        this.width = parseInt(computedStyle.width.replace('px', ''), 10)
-        this.height = parseInt(computedStyle.height.replace('px', ''), 10)
+        this.YTwidth = parseInt(computedStyle.width.replace('px', ''), 10)
+        this.YTheight = parseInt(computedStyle.height.replace('px', ''), 10)
       }
+
       onPlayerReady(event: YT.PlayerEvent) {
         this.player = event.target as YT.Player;  // Type assertion
       }
       
+      toggleMuteVideo()
+      {
+        this.playerVars = this.isMuted?{mute:1,autoplay: 1}:{mute:0,autoplay: 1};
+        this.isMuted = !this.isMuted;
+      }
+        
       playVideoSound() {
         try
           {

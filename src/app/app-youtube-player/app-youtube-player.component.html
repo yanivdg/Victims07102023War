@@ -1,11 +1,14 @@
 <div class="youtubewrap" >
-    <youtube-player [videoId]="videoId"
-                    [playerVars]="playerVars"
-                    suggestedQuality="highres"
-                    [width]="width" 
-                    [height]="height"
-                    (ready)="onPlayerReady($event)"
+    <youtube-player id="ytplayer" [videoId] = "videoId"
+                                [playerVars]="playerVars"
+                                suggestedQuality="highres"
+                                [width]="YTwidth" 
+                                [height]="YTheight"
+                                (ready)="onPlayerReady($event)"
                     >
     </youtube-player>
     <div class="youtubefooter"></div>
+</div>
+<div class="buttons">
+  <button id="togglemute" (click)="toggleMuteVideo()">Mute/unMute</button>
 </div>
