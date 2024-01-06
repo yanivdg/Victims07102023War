@@ -1,11 +1,10 @@
 table {
     color: #333;
     background-color: #f5f5f5;
-
   }
   iframe{
     width:500;
-    height:200;
+    height:100;
   }
   td, tr {
     color: #333;
@@ -16,16 +15,21 @@ table {
   .content-table {
     table-layout: fixed;
     width: 100%; /* Set the table width to fill the available space */
+    height:50%;
   }
   
   .content-table td {
     vertical-align: top; /* Align content to the top of cells */
     border: 1px solid white; /* This adds a border to the table cells */
     width: auto;
+    height:50%;
   }
   
 center-content{
-    width: 100% /* Center content occupies remaining space */
+  display: flex;
+  justify-content: center; /* Optional - for centering content horizontally */
+  align-items: center; /* Optional - for centering content vertically */
+  height: 50%;
   }
 
 .iframe-left {
@@ -61,7 +65,7 @@ center-content{
     overflow-y: auto; 
     border: 1px solid #ccc; 
     */
-    max-height: 700px; /* Set a fixed height for the table container */
+    max-height: 350px; /* Set a fixed height for the table container */
     overflow-y: auto; /* Enable vertical scrolling */
     border: 1px solid #ccc; /* Optional border for visualization */
     width: 100%; /* Set your preferred width */
@@ -201,30 +205,13 @@ center-content{
   .iframe-left, .iframe-right {
     width: 100%;
     height: auto;
-    float: none;
+    float:right;
   }
 
   #count-wrapper {
-    width: 100%;
-  }
-  iframe {
-    width: 100%;
-    height: auto;
+    width: 50%;
   }
 
-  .content-table, .impotedhtml, .querytitle {
-    width: 100%;
-  }
-
-  .iframe-left, .iframe-right {
-    width: 100%;
-    height: auto;
-    float: none;
-  }chmod +x git_push.sh
-
-  #count-wrapper {
-    width: 100%;
-  }
     .center-content {
       display: flex; /* Use flexbox to layout the children */
       flex-wrap: wrap; /* Allow the items to wrap onto multiple lines */
@@ -234,6 +221,6 @@ center-content{
   
     .center-content > div {
       flex: 1 0 auto; /* Allow the children to grow and shrink as needed */
-      max-width: 100%; /* Set a max-width to prevent the items from growing too large */
+      max-width: 50%; /* Set a max-width to prevent the items from growing too large */
     }
   }

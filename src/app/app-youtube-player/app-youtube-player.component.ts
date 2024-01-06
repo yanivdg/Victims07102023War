@@ -44,7 +44,7 @@ export class AppYoutubePlayerComponent implements OnInit,AfterViewInit {
       
       toggleMuteVideo()
       {
-        this.playerVars = this.isMuted?{mute:1,autoplay: 1}:{mute:0,autoplay: 1};
+        this.playerVars = this.isMuted?{mute:1,autoplay: 1,controls: 0}:{mute:0,autoplay: 1,controls: 0};
         this.isMuted = !this.isMuted;
       }
         
