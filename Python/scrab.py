@@ -104,9 +104,9 @@ def  get_resource():
                 html_content += f'<figcaption>{filename}<br>{alt}</figcaption>\n</figure>\n\n'
         html_content += '</div>\n'
         totalall = "<div class='left'>\n"
-        totalall +=  f'<p color:red;>Kidnapped: {total_images}</p>\n'
-        totalall += f'<p color:black;>Murdered: {black_images}</p>\n'
-        totalall +=  f'<p color:#FFD700;>Alive: {yellow_images}</p>\n'
+        totalall +=  f'<p style='color:red'>Kidnapped: {total_images}</p>\n'
+        totalall += f'<p style='color:black'>Murdered: {black_images}</p>\n'
+        totalall +=  f'<p style='color:#FFD700'>Alive: {yellow_images}</p>\n'
         totalall += "</div>\n"
         html_content = insert_after_substring( html_content , "<div class='container'>\n", totalall)
         html_content += "\n</div>\n</body>\n</html>"
