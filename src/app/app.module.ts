@@ -6,16 +6,17 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 //import { DataService } from './service/data.service';
 import { HomeModule } from './home/home.module'; // Import HomeModule
-import { AppYoutubePlayerModule } from './app-youtube-player/app-youtube-player.module';
-
+//import { AppYoutubePlayerModule } from './app-youtube-player/app-youtube-player.module';
+import { FullScreenIframeModule } from './full-screen-iframe/full-screen-iframe.module';
 @NgModule({
 imports: [
     CommonModule, 
     BrowserModule,
     HttpClientModule,
     HomeModule,
-        AppRoutesModule,
-        AppYoutubePlayerModule
+    AppRoutesModule,
+    //AppYoutubePlayerModule,
+    FullScreenIframeModule
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent ],

@@ -1,11 +1,11 @@
-<div class="youtubewrap" >
-    <youtube-player id="ytplayer" [videoId] = "videoId"
+<div class="youtubewrap">
+    <youtube-player  id="ytplayer" 
                                 [playerVars]="playerVars"
                                 suggestedQuality="highres"
                                 [width]="YTwidth" 
                                 [height]="YTheight"
-                                (ready)="onPlayerReady($event)"
-                    >
+                                [videoId]="videoId"
+                                (ready)="onPlayerReady($event)">
     </youtube-player>
     <div class="youtubefooter"></div>
 </div>

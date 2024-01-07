@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router  } from '@angular/router';
-//import { HomeComponent } from './home/home.component';
-//import { HomeModule } from './home/home.module';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,14 +10,15 @@ export class AppComponent implements OnInit {
   showContent = true;
   title = "User";
  constructor(
-    private router: Router,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    const dev = 1
  // Check if the URL does not contain 'localhost'
-      if (!window.location.href.includes('localhost')) {
-        // If the URL does not contain 'localhost', find and click a button by its ID
-        this.navigateToHome();
+      if (!window.location.href.includes('localhost') && dev != 0) {
+         //If the URL does not contain 'localhost', find and click a button by its ID
+          this.navigateToHome();
        }
     }
 
