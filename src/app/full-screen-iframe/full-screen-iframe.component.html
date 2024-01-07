@@ -1,0 +1,9 @@
+<div class="full-screen-iframe" *ngIf="show">
+  <app-youtube-player
+    [videoIdfullscreen]="videoIdfullscreen" 
+    [heightfullscreen]="heightfullscreen" 
+    [widthfullscreen]="widthfullscreen" 
+    [playerVarsfullscreen]="playerVarsfullscreen">
+  </app-youtube-player>
+  <button (click)="close()">Close</button>
+</div>

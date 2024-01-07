@@ -5,8 +5,8 @@
 <body>
     <p class="verNum">ver:{{extractedTitle}}</p>
     <!--[style.visibility]="isLoading ? 'hidden' : 'visible'" style="height:10px"-->
-    <div class="juststam" [style.height.px]="isLoading ? 0 : 150">
-    <app-youtube-player [style.visibility]="isLoading ? 'hidden' : 'visible'" >TIKVA</app-youtube-player>
+    <div class="juststam" [style.height.px]="isLoading ? 0 : 150" >
+    <app-youtube-player #TIKVA [style.visibility]="isLoading ? 'hidden' : 'visible'" [videoId]="'9eDzojXuMZY'">TIKVA</app-youtube-player>
     </div>
     <div *ngIf="isLoading; else querypage">
         <!-- Show this when isLoading is true -->
@@ -18,15 +18,15 @@
     </div>
     <ng-template #querypage>
         <table class="content-table">
-            <tr>
+        <tr>
                 <td class="iframe-left">
-                    <iframe 
-                            src="https://www.youtube.com/embed/8FomPFXPmHs?mute=1&autoplay=1&controls=0&loop=1&playlist=8FomPFXPmHs"
-                            title="Drone video shows Hamas&#39; destruction at Israel music festival"
-                            frameborder="0"
-                            allow="autoplay; encrypted-media">
-                    </iframe>
-                    <div class="overlay"></div>
+                    <iframe
+                    src="https://www.youtube.com/embed/8iibO7SHbgo?mute=1&autoplay=1&controls=0&loop=1&playlist=8iibO7SHbgo"
+                    title="Israel&#39;s Kfar Aza kibbutz left in ruins after deadly Hamas attack"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media">
+            </iframe>
+            <div class="overlay"></div>
                     <iframe
                             src="https://www.youtube.com/embed/VMSpCdmwH6w?mute=1&autoplay=1&controls=0&loop=1&playlist=VMSpCdmwH6w"
                             title="ערוץ 12: היום הראשון של מלחמת חרבות ברזל, 07.10.2023 (א)"
@@ -34,12 +34,18 @@
                             allow="autoplay; encrypted-media">
                     </iframe>
                     <div class="overlay"></div>
-                    <iframe
-                            src="https://www.youtube.com/embed/8iibO7SHbgo?mute=1&autoplay=1&controls=0&loop=1&playlist=8iibO7SHbgo"
-                            title="Israel&#39;s Kfar Aza kibbutz left in ruins after deadly Hamas attack"
+                    <button>
+                    <iframe 
+                    class="blink-border" (click)="openFullScreen('https://youtu.be/4iEq2hUZMMQ?list=RD4iEq2hUZMMQ')"
+                            src="https://www.youtube.com/embed/8FomPFXPmHs?mute=1&autoplay=1&controls=0&loop=1&playlist=8FomPFXPmHs"
+                            title="Drone video shows Hamas&#39; destruction at Israel music festival"
                             frameborder="0"
                             allow="autoplay; encrypted-media">
                     </iframe>
+                    <div class="full-screen">
+                    <!--<app-full-screen-iframe [videoIdfullscreen]="videoIdfullscreen" [heightfullscreen]="heightfullscreen" [widthfullscreen]="widthfullscreen" [playerVarsfullscreen]="playerVarsfullscreen"></app-full-screen-iframe>-->
+                </div>
+                </button>
                     <div class="overlay"></div>
                 </td>
                 <td class="center-content">

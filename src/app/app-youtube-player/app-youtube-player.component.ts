@@ -1,4 +1,4 @@
-import { Component, ElementRef,ViewChild, OnInit,AfterViewInit } from '@angular/core';
+import { Component, ElementRef,ViewChild, OnInit,AfterViewInit , Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {LogService} from '../service/log.service';
 @Component({
@@ -10,15 +10,28 @@ import {LogService} from '../service/log.service';
 export class AppYoutubePlayerComponent implements OnInit,AfterViewInit {
     YTwidth: number | undefined;
     YTheight: number | undefined;
-  
+    @Input() videoId: string | undefined ;
+    @Input() youtubedivstyle:any; 
     constructor(private el: ElementRef,private route: ActivatedRoute,private logService:LogService) {}
+    @Input() videoIdfullscreen: string|undefined;
+    @Input() heightfullscreen: number|undefined;
+    @Input() widthfullscreen: number|undefined;
+    @Input() playerVarsfullscreen: YT.PlayerVars|undefined;
+
     playerVars:any;
     player: YT.Player | null = null;  // Initialize to null
-    videoId = '9eDzojXuMZY'; // replace with your video ID
     isMuted = false;
     isPlayed = false;
     //@ViewChild('player') player!: YouTubePlayer;
     ngOnInit():void{
+      /*if(this.videoIdfullscreen!='')
+      {
+        this.videoId = this.videoIdfullscreen;
+        this.YTwidth = this.widthfullscreen;
+        this.YTheight = this.heightfullscreen;
+        this.playerVars = this.playerVarsfullscreen;
+      }
+      */
         // Retrieving parameters in the child component
         this.route.queryParams.subscribe(params => {
           const userchoice = params['mute'];

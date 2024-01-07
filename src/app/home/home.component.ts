@@ -1,8 +1,9 @@
-import { Component ,OnInit,OnDestroy,EventEmitter} from '@angular/core';
+import { Component ,OnInit,OnDestroy,EventEmitter,ViewChild ,AfterViewInit } from '@angular/core';
 import {DataService} from '../service/data.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Import DomSanitizer and SafeHtml
 import { Subscription, Observable} from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { FullScreenIframeComponent } from '../full-screen-iframe/full-screen-iframe.component';
 
 @Component({
     selector: 'app-home',
@@ -10,7 +11,13 @@ import { switchMap } from 'rxjs/operators';
     styleUrl: './home.component.css',
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewInit  {
+
+    constructor(
+        private dataService: DataService,
+        private sanitizer: DomSanitizer, // Inject DomSanitizer
+        //private fullScreenIframe:FullScreenIframeComponent
+    ) { }
     victimsCount: number = 0;
     public eventEmitter = new EventEmitter<void>();
     private subscription: Subscription = new Subscription();
@@ -42,12 +49,49 @@ export class HomeComponent implements OnInit {
         r: { combo: 'Rescue', image: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Magen_David_Adom.svg/1200px-Magen_David_Adom.svg.png'),url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/FireDepIsrael.svg/1024px-FireDepIsrael.svg.png'" }
     };
      extractedTitle :string = '';
-    constructor(
-        private dataService: DataService,
-        private sanitizer: DomSanitizer // Inject DomSanitizer
-    ) { }
-
+     videoIdfullscreen = "";
+    heightfullscreen = 640;
+    widthfullscreen  = 1080;
+    playerVarsfullscreen : any = {
+      autoplay: 1,
+      controls: 1,
+      showinfo: 0
+      // Add more player variables here
+    };
+    showFullScreen = false;
+    //@ViewChild(FullScreenIframeComponent) fullscreenComponent: FullScreenIframeComponent | undefined;
+    @ViewChild('TIKVA') myVideo: any;
     //methods
+  
+    openFullScreen(url: string) {;
+        if (this.myVideo && this.myVideo.nativeElement) {
+            this.myVideo.nativeElement.mute(); // Pause the video element
+          }
+        this.videoIdfullscreen = url;
+        this.showFullScreen = true;
+        const screenWidth = window.screen.availWidth;
+        const screenHeight = window.screen.availHeight;
+        alert("you are going to move to an external link");
+        const windowFeatures = `
+          toolbar=no,
+          location=no,
+          directories=no,
+          status=no,
+          menubar=no,
+          scrollbars=no,
+          resizable=yes,
+          copyhistory=no,
+          width=${screenWidth},
+          height=${screenHeight},
+          top=0,
+          left=0
+        `;
+        window.open(url, '_blank', windowFeatures);
+    }
+
+    ngAfterViewInit(): void {
+
+    }
 
     ngOnInit() {
         console.log("ngOnInit");

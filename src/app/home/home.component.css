@@ -33,7 +33,6 @@ center-content{
   }
 
 .iframe-left {
-    
     position: relative;
     width: 400px;
     height: 300px;
@@ -189,6 +188,17 @@ center-content{
   background-color: #f0f0f0; /* Add a background color for visibility */
   z-index: 0; /* Set a higher z-index if necessary */
   /* Other styles for the top div */
+}
+
+@keyframes blink {
+  0% { border-color: transparent; }
+  50% { border-color: red; }
+  100% { border-color: transparent; }
+}
+
+.blink-border {
+  border: 20px solid transparent; /* Initially transparent */
+  animation: blink 2s infinite; /* Blinking animation */
 }
 /*-------------for mobile---------------*/
 @media screen and (max-width: 768px) {
