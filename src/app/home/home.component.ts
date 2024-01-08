@@ -50,40 +50,64 @@ export class HomeComponent implements OnInit,AfterViewInit  {
     };
      extractedTitle :string = '';
      videoIdfullscreen = "";
-    heightfullscreen = 640;
-    widthfullscreen  = 1080;
-    playerVarsfullscreen : any = {
-      autoplay: 1,
-      controls: 1,
-      showinfo: 0
-      // Add more player variables here
-    };
-    showFullScreen = false;
+     heightfullscreen = 640;
+     widthfullscreen  = 1080;
+
+     forplayerVars :any|undefined;
+    
+     showFullScreen = false;
     //@ViewChild(FullScreenIframeComponent) fullscreenComponent: FullScreenIframeComponent | undefined;
     @ViewChild('togglemutebutton', {static: false}) toggleMutebutton!: ElementRef;
     //methods
   
     openFullScreen(url: string) {
+        this.forplayerVars = {mute:1,autoplay: 1,controls: 0};
         this.videoIdfullscreen = url;
         this.showFullScreen = true;
         const screenWidth = window.screen.availWidth;
         const screenHeight = window.screen.availHeight;
-        alert("you are going to move to an external link - please click on the mute/unmute");
+        alert("you are going to move to an external link - after video will start press 'f' ");
         const windowFeatures = `
-          toolbar=no,
-          location=no,
-          directories=no,
-          status=no,
-          menubar=no,
-          scrollbars=no,
-          resizable=yes,
-          copyhistory=no,
-          width=${screenWidth},
-          height=${screenHeight},
-          top=0,
-          left=0
-        `;
-        window.open(url, '_blank', windowFeatures);
+        toolbar=no,
+        location=no,
+        directories=no,
+        status=no,
+        menubar=no,
+        scrollbars=no,
+        resizable=yes,
+        copyhistory=no,
+        width=${screenWidth},
+        height=${screenHeight},
+        top=0,
+        left=0
+      `;
+      
+      let newWindow: any = window.open(url, '_blank', windowFeatures);
+
+      if (newWindow) {
+        // Listen for a message event in the new window
+        newWindow.onload = function() {
+          newWindow.document.addEventListener('message', function(event: MessageEvent) {
+            if (event.data === 'simulateKeyPress') {
+              // Wait 5 to 7 seconds before simulating the key press
+              setTimeout(() => {
+                newWindow.document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'f' }));
+              }, Math.random() * 2000 + 5000);  // Generates a random delay between 5000ms (5s) and 7000ms (7s)
+            }
+          });
+        };
+      
+        // Send a message to the new window
+        newWindow.postMessage('simulateKeyPress', '*');
+      
+        // Close the new window after 10 seconds
+        setTimeout(() => {
+          newWindow.close();
+        }, 10000);
+      } else {
+        console.log('Failed to open new window');
+      }
+      
     }
 
     ngAfterViewInit(): void {

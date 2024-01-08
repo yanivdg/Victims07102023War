@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { Router  } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  
+  startPlayerVars:any|undefined;
+  startvideoID: string = '';
+  muteCode: number = 0;
   showContent = true;
   title = "User";
  constructor(
@@ -14,6 +17,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //this.startPlayerVars = {};
     const dev = '0';
  // Check if the URL does not contain 'localhost'
       if (!window.location.href.includes('localhost') && dev === '0') {
@@ -21,7 +25,16 @@ export class AppComponent implements OnInit {
           this.navigateToHome();
        }
     }
-
+placevalues():void{
+this.startPlayerVars = 
+{controls: 0,  
+  loop: 1,
+  autoplay: 1,  
+  disablekb: 1, 
+  playlist: 
+  this.startvideoID,
+  mute:this.muteCode}
+}
  navigateToHome(): void {
     let queryParams = { mute: 1 };
     const confirmed = window.confirm('The Page involved videos with sound, do you agree to proceed with sound in the background?');

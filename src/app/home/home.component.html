@@ -6,13 +6,13 @@
     <p class="verNum">ver:{{extractedTitle}}</p>
     <!--[style.visibility]="isLoading ? 'hidden' : 'visible'" style="height:10px"-->
     <div class="juststam" [style.height.px]="isLoading ? 0 : 150" >
-    <app-youtube-player #TIKVA [style.visibility]="isLoading ? 'hidden' : 'visible'" [videoId]="'9eDzojXuMZY'">TIKVA</app-youtube-player>
+    <app-youtube-player #TIKVA [style.visibility]="isLoading ? 'hidden' : 'visible'" [videoId]="'9eDzojXuMZY'" [playerVars]="forplayerVars">TIKVA</app-youtube-player>
     </div>
     <div *ngIf="isLoading; else querypage">
         <!-- Show this when isLoading is true -->
         <p>Please wait while Page is loading...</p>
         <h1 style="font-size:3vw; top:0px; color: red; text-align: center;">BRING THEM HOME</h1>
-         <div class="impotedhtml" style="border: 20px solid red;width: 90vw;height: 65vh;box-sizing: border-box;"> 
+         <div class="impotedhtml" style="border: 20px solid red;width: 90vw;height: 75vh;box-sizing: border-box;"> 
         <div [innerHTML]="documentHtmlContent"></div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                     <div class="overlay"></div>
                     <button>
                     <iframe 
-                    class="blink-border" (click)="openFullScreen('https://youtu.be/4iEq2hUZMMQ?list=RD4iEq2hUZMMQ')"
+                    class="blink-border" (click)="openFullScreen('https://youtu.be/4iEq2hUZMMQ')"
                             src="https://www.youtube.com/embed/8FomPFXPmHs?mute=1&autoplay=1&controls=0&loop=1&playlist=8FomPFXPmHs"
                             title="Drone video shows Hamas&#39; destruction at Israel music festival"
                             frameborder="0"

@@ -18,7 +18,7 @@ export class AppYoutubePlayerComponent implements OnInit,AfterViewInit {
     @Input() widthfullscreen: number|undefined;
     @Input() playerVarsfullscreen: YT.PlayerVars|undefined;
 
-    playerVars:any;
+    @Input() playerVars:any;
     player: YT.Player | null = null;  // Initialize to null
     isMuted = false;
     isPlayed = false;
@@ -44,21 +44,34 @@ export class AppYoutubePlayerComponent implements OnInit,AfterViewInit {
         });
     }
     ngAfterViewInit() {
-         const div = this.el.nativeElement.querySelector('.youtubewrap');
+        const div = this.el.nativeElement.querySelector('.youtubewrap');
         const computedStyle = window.getComputedStyle(div);
   
         this.YTwidth = parseInt(computedStyle.width.replace('px', ''), 10)
         this.YTheight = parseInt(computedStyle.height.replace('px', ''), 10)
+        if(this.playerVarsfullscreen)
+        {
+          this.playerVars = this.playerVarsfullscreen;
+        }
       }
 
-      onPlayerReady(event: YT.PlayerEvent) {
+      onPlayerReady(event: YT.PlayerEvent) 
+      {
         this.player = event.target as YT.Player;  // Type assertion
+        console.log(this.playerVars);
       }
       
       toggleMuteVideo()
       {
-        this.playerVars = this.isMuted?{mute:1,autoplay: 1,controls: 0}:{mute:0,autoplay: 1,controls: 0};
-        this.isMuted = !this.isMuted;
+        this.isMuted =  this.playerVars.mute;
+        if(this.isMuted)
+        {
+          this.playerVars = {mute:0,autoplay: 1,controls: 0};
+        }
+        else
+        {
+          this.playerVars = {mute:1,autoplay: 1,controls: 0};
+        }
       }
         
       playVideoSound() {

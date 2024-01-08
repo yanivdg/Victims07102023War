@@ -22,7 +22,8 @@ import { FullScreenIframeModule } from '../full-screen-iframe/full-screen-iframe
     HttpClientModule,
       FormsModule,
       AppYoutubePlayerModule,
-      FullScreenIframeModule
+      FullScreenIframeModule,
+      FormsModule
   ],
   providers: [DataService],
 },)
