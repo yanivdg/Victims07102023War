@@ -11,7 +11,7 @@
     height: 100%;
 }
   
-  .buttons {
+  #togglemute {
     position: absolute;
     top: 0;
     right: 640px; /* or left: 0; to position on the left side */

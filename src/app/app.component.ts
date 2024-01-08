@@ -14,9 +14,9 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const dev = 1
+    const dev = '0';
  // Check if the URL does not contain 'localhost'
-      if (!window.location.href.includes('localhost') && dev != 0) {
+      if (!window.location.href.includes('localhost') && dev === '0') {
          //If the URL does not contain 'localhost', find and click a button by its ID
           this.navigateToHome();
        }

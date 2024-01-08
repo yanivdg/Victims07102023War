@@ -1,4 +1,4 @@
-import { Component ,OnInit,OnDestroy,EventEmitter,ViewChild ,AfterViewInit } from '@angular/core';
+import { Component ,OnInit,OnDestroy,EventEmitter,ViewChild ,AfterViewInit,ElementRef } from '@angular/core';
 import {DataService} from '../service/data.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Import DomSanitizer and SafeHtml
 import { Subscription, Observable} from 'rxjs';
@@ -60,18 +60,15 @@ export class HomeComponent implements OnInit,AfterViewInit  {
     };
     showFullScreen = false;
     //@ViewChild(FullScreenIframeComponent) fullscreenComponent: FullScreenIframeComponent | undefined;
-    @ViewChild('TIKVA') myVideo: any;
+    @ViewChild('togglemutebutton', {static: false}) toggleMutebutton!: ElementRef;
     //methods
   
-    openFullScreen(url: string) {;
-        if (this.myVideo && this.myVideo.nativeElement) {
-            this.myVideo.nativeElement.mute(); // Pause the video element
-          }
+    openFullScreen(url: string) {
         this.videoIdfullscreen = url;
         this.showFullScreen = true;
         const screenWidth = window.screen.availWidth;
         const screenHeight = window.screen.availHeight;
-        alert("you are going to move to an external link");
+        alert("you are going to move to an external link - please click on the mute/unmute");
         const windowFeatures = `
           toolbar=no,
           location=no,
