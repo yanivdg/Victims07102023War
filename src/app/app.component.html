@@ -64,7 +64,6 @@
         <div><label for="textInput">VideoID:</label><input type="text" id="textInput" [(ngModel)]="startvideoID"></div>
         <div><label for="numberInput">Mute/UnMute(1/0):</label><input type="number" id="numberInput" [(ngModel)]="muteCode"></div>
         <button (click)="placevalues()">Use Values</button> -->
-      </div>
       <div class="divider" role="separator" aria-label="Divider"></div>
       <div class="right-side">
         <div class="pill-group">
@@ -158,6 +157,7 @@
           </a>
         </div>
       </div>
+    </div>
       <ng-template #contents>
         <router-outlet></router-outlet>
       </ng-template>
