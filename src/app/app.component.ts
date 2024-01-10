@@ -7,8 +7,8 @@ import { Router  } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  startPlayerVars:any|undefined;
-  startvideoID: string = '';
+  //startPlayerVars:any|undefined;
+  //startvideoID: string = '';
   muteCode: number = 0;
   showContent = true;
   title = "User";
@@ -18,13 +18,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     //this.startPlayerVars = {};
-    const dev = '0';
  // Check if the URL does not contain 'localhost'
-      if (!window.location.href.includes('localhost') && dev === '0') {
+      if (!window.location.href.includes('localhost')) {
          //If the URL does not contain 'localhost', find and click a button by its ID
-          this.navigateToHome();
-       }
+            this.navigateToHome();
+      }
     }
+/*
 placevalues():void{
 this.startPlayerVars = 
 {controls: 0,  
@@ -35,9 +35,10 @@ this.startPlayerVars =
   this.startvideoID,
   mute:this.muteCode}
 }
+*/
  navigateToHome(): void {
     let queryParams = { mute: 1 };
-    const confirmed = window.confirm('The Page involved videos with sound, do you agree to proceed with sound in the background?');
+     const confirmed = window.confirm('The Page involved videos with sound, do you agree to proceed with sound in the background?');
     if (confirmed) {
         // Use the YouTube player API to mute the player
         queryParams = { mute: 0 };
@@ -45,5 +46,7 @@ this.startPlayerVars =
     this.router.navigate(['/home'],{queryParams,skipLocationChange: true }); // Navigate to the 'home' route on button click
     this.showContent = false;
   }
+  
 }
+
 

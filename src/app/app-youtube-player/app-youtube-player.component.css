@@ -1,7 +1,8 @@
-.youtubewrap{
-    position: relative; 
+.youtubewrap {
+    position: relative;
     width:1700px;
     height:150px;
+      
 }
 .youtubefooter{
     position: absolute; 
@@ -14,9 +15,34 @@
   #togglemute {
     position: absolute;
     top: 0;
+    width:800px;
     right: 640px; /* or left: 0; to position on the left side */
     /* Adjust top, right, left, or other styles as needed */
+
   }
+
+#togglemute {
+    background-image: url('https://th.bing.com/th/id/OIG.dZxos_xQTeF8sB97050w?w=1024&h=1024&rs=1&pid=ImgDetMain'); /* Replace with your texture image */
+    background-color: #555; /* burned stone color */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 50%; /* makes the button circular */
+}
+
+    #togglemute:active {
+        background-image: url('https://th.bing.com/th/id/OIG.flM3Dz9b8I2WcS6gE_k7?pid=ImgGn'); /* Replace with your splatter image */
+        background-color: #FF0000; /* blood color */
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
 
   @media screen and (max-width: 768px) 
     {

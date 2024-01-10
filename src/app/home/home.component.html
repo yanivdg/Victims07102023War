@@ -5,8 +5,8 @@
 <body>
     <p class="verNum">ver:{{extractedTitle}}</p>
     <!--[style.visibility]="isLoading ? 'hidden' : 'visible'" style="height:10px"-->
-    <div class="juststam" [style.height.px]="isLoading ? 0 : 150" >
-    <app-youtube-player #TIKVA [style.visibility]="isLoading ? 'hidden' : 'visible'" [videoId]="'9eDzojXuMZY'" [playerVars]="forplayerVars">TIKVA</app-youtube-player>
+    <div class="juststam" [style.height.px]="isLoading ? 0 : 150">
+    <app-youtube-player #TIKVA [style.visibility]="isLoading ? 'hidden' : 'visible'" [videoId]="'9eDzojXuMZY'" [playerVars]="forplayerVars" >TIKVA</app-youtube-player>
     </div>
     <div *ngIf="isLoading; else querypage">
         <!-- Show this when isLoading is true -->

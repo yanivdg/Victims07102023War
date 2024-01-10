@@ -200,6 +200,7 @@ center-content{
   border: 20px solid transparent; /* Initially transparent */
   animation: blink 2s infinite; /* Blinking animation */
 }
+
 /*-------------for mobile---------------*/
 @media screen and (max-width: 768px) {
   /* Styles for mobile screens */

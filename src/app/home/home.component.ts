@@ -3,7 +3,7 @@ import {DataService} from '../service/data.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Import DomSanitizer and SafeHtml
 import { Subscription, Observable} from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { FullScreenIframeComponent } from '../full-screen-iframe/full-screen-iframe.component';
+import { LogService } from '../service/log.service';
 
 @Component({
     selector: 'app-home',
@@ -16,13 +16,14 @@ export class HomeComponent implements OnInit,AfterViewInit  {
     constructor(
         private dataService: DataService,
         private sanitizer: DomSanitizer, // Inject DomSanitizer
-        //private fullScreenIframe:FullScreenIframeComponent
+        private logService: LogService
     ) { }
+
+    //params
+    aaa: any;
     victimsCount: number = 0;
     public eventEmitter = new EventEmitter<void>();
     private subscription: Subscription = new Subscription();
-    //@Output() eventEmitter = new EventEmitter<void>();
-    //params
     htmlContent: SafeHtml = ''; // Use SafeHtml type to store sanitized HTML
     result: any;
     NodeLevelList: any = [
@@ -50,24 +51,47 @@ export class HomeComponent implements OnInit,AfterViewInit  {
     };
      extractedTitle :string = '';
      videoIdfullscreen = "";
-     heightfullscreen = 640;
-     widthfullscreen  = 1080;
 
-     forplayerVars :any|undefined;
-    
+    forplayerVars: any = null;// { controls: 0, loop: 1, autoplay: 1, disablekb: 1 };
      showFullScreen = false;
-    //@ViewChild(FullScreenIframeComponent) fullscreenComponent: FullScreenIframeComponent | undefined;
-    @ViewChild('togglemutebutton', {static: false}) toggleMutebutton!: ElementRef;
+    //@ViewChild('togglemutebutton', {static: false}) toggleMutebutton!: ElementRef;
+
     //methods
-  
+    ngOnInit() {
+        console.log("ngOnInit");
+
+        const indexRoot: string = "https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/index.html";
+        this.dataService.getData(indexRoot).subscribe(
+            (htmlDoc: any) => {
+                this.extractedTitle = this.extractTextAfterKeyword(this.dataService.getContentByElementFromHTML(htmlDoc, "title").text, "ver");
+            },
+            (error) => {
+                console.error('Error fetching file:', error);
+            });
+
+        this.scraber();
+        this.elementsRetrieved.subscribe((elements: string) => {
+            this.victimsCount = this.CastStringToElements(elements).length;
+        });
+    }
+
+    ngAfterViewInit(): void {
+
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
+
     openFullScreen(url: string) {
-        this.forplayerVars = {mute:1,autoplay: 1,controls: 0};
-        this.videoIdfullscreen = url;
-        this.showFullScreen = true;
-        const screenWidth = window.screen.availWidth;
-        const screenHeight = window.screen.availHeight;
-        alert("you are going to move to an external link - after video will start press 'f' ");
-        const windowFeatures = `
+        try {
+            this.forplayerVars = {mute:1,autoplay: 1,controls: 0};
+            this.videoIdfullscreen = url;
+            this.showFullScreen = true;
+            const screenWidth = window.screen.availWidth;
+            const screenHeight = window.screen.availHeight;
+            alert("you are going to move to an external link - after video will start press 'f' ");
+            const windowFeatures = `
         toolbar=no,
         location=no,
         directories=no,
@@ -81,9 +105,14 @@ export class HomeComponent implements OnInit,AfterViewInit  {
         top=0,
         left=0
       `;
-      
-      let newWindow: any = window.open(url, '_blank', windowFeatures);
 
+            let newWindow: any = window.open(url, '_blank', windowFeatures);
+        }
+        catch (error: any) {
+            alert(error.message);
+            this.logService.logToServer(`Error occurred: ${error.message}`);
+        }
+      /*
       if (newWindow) {
         // Listen for a message event in the new window
         newWindow.onload = function() {
@@ -107,35 +136,8 @@ export class HomeComponent implements OnInit,AfterViewInit  {
       } else {
         console.log('Failed to open new window');
       }
-      
+      */
     }
-
-    ngAfterViewInit(): void {
-
-    }
-
-    ngOnInit() {
-        console.log("ngOnInit");
-        
-        const indexRoot: string = "https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/index.html";
-        this.dataService.getData(indexRoot).subscribe(
-            (htmlDoc: any) => {
-              this.extractedTitle = this.extractTextAfterKeyword(this.dataService.getContentByElementFromHTML(htmlDoc,"title").text,"ver");
-            },
-            (error) => {
-              console.error('Error fetching file:', error);
-            });
-            
-        this.scraber();
-        this.elementsRetrieved.subscribe((elements: string) => {
-            this.victimsCount = this.CastStringToElements(elements).length;
-        });
-    }
-
-    ngOnDestroy(): void {
-        this.subscription.unsubscribe();
-    }
-
      extractTextAfterKeyword(text: string, keyword: string): string {
         const keywordIndex = text.indexOf(keyword);
         if (keywordIndex !== -1) {
@@ -143,6 +145,7 @@ export class HomeComponent implements OnInit,AfterViewInit  {
         } else {
             return "Keyword not found in the text.";
         }
+       
     }
 
     CastElementsToString(elements: Element[]): string {
