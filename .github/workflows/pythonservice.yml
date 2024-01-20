@@ -37,6 +37,10 @@ jobs:
           
       - name: push kidnapped.html
         run: |
+
+          # Move the file to the desired folder
+          mkdir -p main/Python
+          mv kidnapped.html main/Python/
           git config --global user.name 'yanivdg'
           git config --global user.email 'yaniv.dg.work@gmail.com'
           # Perform actions if changes are present, such as git add, commit, and push.
