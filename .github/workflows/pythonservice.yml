@@ -2,7 +2,7 @@ name: Python Service Workflow
 
 on:
   schedule:
-      - cron: '0 0 * * *'  # Runs once a day at midnight
+    - cron: '0 0 * * *'  # Runs once a day at midnight
 
 jobs:
   build:
@@ -28,22 +28,29 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install bs4 playwright requests flask gunicorn
-          # Install dependencies using 'python -m pip' command
 
       - name: Run Python Service
         run: |
           wget https://cdn.jsdelivr.net/gh/yanivdg/Victims07102023War@main/Python/scrab.py -O scrab.py
           python scrab.py --mode console  # Run the downloaded script
-          
+
+      - name: Check if kidnapped.html exists
+        run: |
+          if [ ! -f kidnapped.html ]; then
+            echo "kidnapped.html does not exist."
+            exit 1
+          else
+            echo "kidnapped.html found."
+          fi
+
       - name: push kidnapped.html
         run: |
-
           # Move the file to the desired folder
           mkdir -p main/Python
           mv kidnapped.html main/Python/
           git config --global user.name 'yanivdg'
           git config --global user.email 'yaniv.dg.work@gmail.com'
           # Perform actions if changes are present, such as git add, commit, and push.
-          git add kidnapped.html
-          git commit -m "updating kiddnapped.html page list"
+          git add main/Python/kidnapped.html
+          git commit -m "updating kidnapped.html page list"
           git push origin main
