@@ -63,8 +63,8 @@
     color: var(--gray-700);
   }
   main {
-    width: 100%;
-    min-height: 100%;
+    width: 50%;
+    min-height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;

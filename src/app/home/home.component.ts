@@ -1,4 +1,4 @@
-import { Component ,OnInit,OnDestroy,EventEmitter,ViewChild ,AfterViewInit,ElementRef } from '@angular/core';
+import { Component ,OnInit,EventEmitter,AfterViewInit } from '@angular/core';
 import {DataService} from '../service/data.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Import DomSanitizer and SafeHtml
 import { Subscription, Observable} from 'rxjs';
@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit,AfterViewInit  {
         private sanitizer: DomSanitizer, // Inject DomSanitizer
         private logService: LogService
     ) { }
+    ngAfterViewInit(): void {
+        //throw new Error('Method not implemented.');
+    }
 
     //params
     aaa: any;
@@ -46,7 +49,7 @@ export class HomeComponent implements OnInit,AfterViewInit  {
         a: { combo: 'All', image: '' },
         c: { combo: 'Civilians', image: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/1280px-Flag_of_Israel.svg.png')" },
         s: { combo: 'Soldiers', image: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Badge_of_the_Israeli_Defense_Forces_2022_version.svg/1024px-Badge_of_the_Israeli_Defense_Forces_2022_version.svg.png')" },
-        p: { combo: 'Police', image: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emblem_of_Israel_Police_Blue.svg/1024px-Emblem_of_Israel_Police_Blue.svg.png')" },
+        p: { combo: 'Police', image: "url('https://uploametd.wikimedia.org/wikipedia/commons/thumb/2/27/Emblem_of_Israel_Police_Blue.svg/1024px-Emblem_of_Israel_Police_Blue.svg.png')" },
         r: { combo: 'Rescue', image: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Magen_David_Adom.svg/1200px-Magen_David_Adom.svg.png'),url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/FireDepIsrael.svg/1024px-FireDepIsrael.svg.png'" }
     };
      extractedTitle :string = '';
@@ -54,7 +57,6 @@ export class HomeComponent implements OnInit,AfterViewInit  {
 
     forplayerVars: any = null;// { controls: 0, loop: 1, autoplay: 1, disablekb: 1 };
      showFullScreen = false;
-    //@ViewChild('togglemutebutton', {static: false}) toggleMutebutton!: ElementRef;
 
     //methods
     ngOnInit() {
@@ -75,9 +77,6 @@ export class HomeComponent implements OnInit,AfterViewInit  {
         });
     }
 
-    ngAfterViewInit(): void {
-
-    }
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
@@ -112,31 +111,7 @@ export class HomeComponent implements OnInit,AfterViewInit  {
             alert(error.message);
             this.logService.logToServer(`Error occurred: ${error.message}`);
         }
-      /*
-      if (newWindow) {
-        // Listen for a message event in the new window
-        newWindow.onload = function() {
-          newWindow.document.addEventListener('message', function(event: MessageEvent) {
-            if (event.data === 'simulateKeyPress') {
-              // Wait 5 to 7 seconds before simulating the key press
-              setTimeout(() => {
-                newWindow.document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'f' }));
-              }, Math.random() * 2000 + 5000);  // Generates a random delay between 5000ms (5s) and 7000ms (7s)
-            }
-          });
-        };
-      
-        // Send a message to the new window
-        newWindow.postMessage('simulateKeyPress', '*');
-      
-        // Close the new window after 10 seconds
-        setTimeout(() => {
-          newWindow.close();
-        }, 10000);
-      } else {
-        console.log('Failed to open new window');
-      }
-      */
+
     }
      extractTextAfterKeyword(text: string, keyword: string): string {
         const keywordIndex = text.indexOf(keyword);
@@ -191,47 +166,50 @@ export class HomeComponent implements OnInit,AfterViewInit  {
     }
 
     generateOptions(htmlString: string): void {
-        // Create a new DOM parser
-        const parser = new DOMParser();
-        // Parse the HTML string
-        const doc = parser.parseFromString(htmlString, 'text/html');
-        // Get all elements with the class 'war-victims-card'
-        const elements = doc.querySelectorAll(this.NodeLevelList[0]);
-        // Clear the options array
-        const optionsList: Set<string> = new Set();//Options for the combobox
-        optionsList.add(this.codeTranslateDictionary['a'].combo);
-        // Iterate over each element
-        elements.forEach((element: any) => {
-            // Get the sort value
-            const sortValue = element.getAttribute('data-sort');
-            // Add the sort value to the options set
-            if (sortValue)
+        try {
+          // Create a new DOM parser
+          const parser = new DOMParser();
+          // Parse the HTML string
+          const doc = parser.parseFromString(htmlString, 'text/html');
+          // Get all elements with the class 'war-victims-card'
+          const elements = doc.querySelectorAll(this.NodeLevelList[0]);
+          // Clear the options array
+          const optionsList: Set<string> = new Set();//Options for the combobox
+          optionsList.add(this.codeTranslateDictionary['a'].combo);
+          // Iterate over each element
+          elements.forEach((element: any) => {
+            try {
+              // Get the sort value
+              const sortValue = element.getAttribute('data-sort');
+              // Add the sort value to the options set if it exists in the dictionary
+              if (sortValue && this.codeTranslateDictionary[sortValue.trim()]) {
                 optionsList.add(this.codeTranslateDictionary[sortValue.trim()].combo);
-        });
-        this.options = Array.from(optionsList);
-        this.selectedOption = this.codeTranslateDictionary[Object.keys(this.codeTranslateDictionary)[0]].combo;
-    }
-
-    /*
-    
-    parseHtml(htmlString: string) {
-      // Create a new DOM parser
-      const parser = new DOMParser();
-      // Parse the HTML string
-      const doc = parser.parseFromString(htmlString, 'text/html');
-      // Get all elements with the class 'war-victims-card'
-      const elements = doc.querySelectorAll('.war-victims-card');
-      // Generate the options and elements
-      elements.forEach(element => {
-        // Get the sort value
-        const sortValue = element.getAttribute('data-sort');
-        // Add the sort value to the options
-        if (sortValue) {this.options.push(sortValue);}
-        // Add the element to the elements
-        //this.elements.push(element.outerHTML);
-      });
-    }
-    */
+              } else {
+                console.warn(`Sort value '${sortValue}' not found in dictionary.`);
+              }
+            } catch (error) {
+              // Handle errors
+              const errorMessage = (error instanceof Error) ? error.message : 'Unknown error occurred';
+              console.error('Error processing element:', errorMessage);
+              // Log the error or handle as needed
+              this.logService.logToServer(`Error processing element in generateOptions(): ${errorMessage}`);
+              // You can choose to ignore or handle this error depending on your application logic
+              // For example, continue processing other elements
+            }
+          });
+          this.options = Array.from(optionsList);
+          this.selectedOption = this.codeTranslateDictionary[Object.keys(this.codeTranslateDictionary)[0]].combo;
+        } catch (error) {
+          // Handle errors
+          const errorMessage = (error instanceof Error) ? error.message : 'Unknown error occurred';
+          console.error('Error parsing HTML or processing options:', errorMessage);
+          // Log the error or handle as needed
+          this.logService.logToServer(`Error parsing HTML or processing options in generateOptions(): ${errorMessage}`);
+          // You can choose to ignore or handle this error depending on your application logic
+          // For example, display a message to the user or fallback to default options
+        }
+      }
+           
 
     convertToTable(htmlString: string): string {
         // Create a new DOM parser
@@ -336,26 +314,6 @@ export class HomeComponent implements OnInit,AfterViewInit  {
                 }
             );
             
-        /*
-        this.dataService.getRequest('https://raw.githubusercontent.com/yanivdg/Victims07102023War/main/Python/kidnapped.html').pipe(
-         switchMap((response:any) =>
-         {
-           this.documentHtmlContent = this.sanitizer.bypassSecurityTrustHtml(response);
-           return new Observable(observer => {
-             observer.next(this.documentHtmlContent ); // Pass the modified response downstream
-             observer.complete(); // Complete the Observable
-           });
-         })
-         ).subscribe(
-           (response: any) => {
-             // Handle the response or perform subsequent operations if needed
-             this.elementsRetrieved.emit(response);
-           },
-           (error) => {
-             console.error('Error:', error);
-             // Handle errors
-           });
-           */
         this.dataService.postRequest(jsonbody).pipe(
             switchMap((response: any) => {
                 // Handle the response here
