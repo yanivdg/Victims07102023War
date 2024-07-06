@@ -71,30 +71,27 @@ center-content{
     margin: 0 auto; /* Center the container horizontally */
 }
 
-/* bing */
 .querytitle {
   top: 0; /* Adjust as needed */
   padding: 1em; /* Add some space around your content */
   clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
   width: 90%; /* Or any specific width */
   height: auto; /* Or any specific height */
-  /* Add a fallback for older browsers that don't support 'rgba' */
-  background-color: rgb(255, 255, 255);
-  /* Add transparency to the background color */
-  background-color: rgba(0, 0, 0, 0.8);
-  /* Your content styles */
+  background-color: rgba(0, 0, 0, 0.8); /* Add transparency to the background color */
   font-family: Georgia, serif;
   font-size: 24px;
   font-weight: bold;
-  color: rgb(255, 255, 255);;
+  color: rgb(255, 255, 255);
   text-align: center;
   margin-bottom: 10px;
-  background-image: url('https://th.bing.com/th/id/OIG.bKqqn9I0Cpci9WJTxFLJ?pid=ImgGn');
+  background-image: 'assets/images/_bce37a9b-41b3-471b-b64c-3bb00c1c3f31.jpeg'; /* Corrected */
   background-size: cover;
   max-height: 250px; /* Set a fixed height for the table container */
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ccc; /* Optional border for visualization */
 }
+
+
 
 
 /*victims count element starts*/
