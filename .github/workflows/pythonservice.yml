@@ -43,14 +43,14 @@ jobs:
             echo "kidnapped.html found."
           fi
 
-      - name: push kidnapped.html
+      - name: Push kidnapped.html
         run: |
           # Move the file to the desired folder
-          mkdir -p main/Python
-          mv kidnapped.html main/Python/
+          mkdir -p python
+          mv kidnapped.html Python/
           git config --global user.name 'yanivdg'
           git config --global user.email 'yaniv.dg.work@gmail.com'
           # Perform actions if changes are present, such as git add, commit, and push.
-          git add main/Python/kidnapped.html
+          git add Python/kidnapped.html
           git commit -m "updating kidnapped.html page list"
           git push origin main
