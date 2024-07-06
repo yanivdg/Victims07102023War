@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit,AfterViewInit  {
                 console.error('Error fetching file:', error);
             });
 
-        this.scraber();
+        this.scraper();
         this.elementsRetrieved.subscribe((elements: string) => {
             this.victimsCount = this.CastStringToElements(elements).length;
         });
@@ -162,7 +162,7 @@ export class HomeComponent implements OnInit,AfterViewInit  {
     }
     appbuttonclicked() {
         this.subscription = this.eventEmitter.subscribe(() => {
-            this.scraber();
+            this.scraper();
         });
     }
     filterElements() {
@@ -272,28 +272,51 @@ export class HomeComponent implements OnInit,AfterViewInit  {
         const doc = parser.parseFromString(htmlString, 'text/html');
         // Get all elements with the class 'war-victims-card'
         const elements = doc.querySelectorAll(this.NodeLevelList[0]);
+    
         elements.forEach((element: any) => {
             const content = element.querySelector(this.NodeLevelList[2]);
             // Get the sort value
             const value = element.getAttribute('data-sort');
-            // Set a semi-transparent white background (e.g., 80% opacity)
+    
+            // Continue to the next iteration if content or value is not defined
+            if (!content || !value) {
+                console.warn("Element content or 'data-sort' attribute not found. Skipping...");
+                return;
+            }
+    
+            const dictionaryEntry = this.codeTranslateDictionary[value.trim()];
+    
+            // Continue to the next iteration if dictionaryEntry is not defined
+            if (!dictionaryEntry) {
+                console.warn(`No entry found in codeTranslateDictionary for key: ${value.trim()}. Skipping...`);
+                return;
+            }
+    
+            const backgroundImage = dictionaryEntry[PropertyValue];
+    
+            // Continue to the next iteration if backgroundImage is not defined
+            if (!backgroundImage) {
+                console.warn(`No entry found in dictionaryEntry for key: ${PropertyValue}. Skipping...`);
+                return;
+            }
+    
+            // Set styles
             content.style.backgroundColor = 'rgba(255, 255, 255, 0.8)'; // Adjust the last value for opacity
-            // Set text color to black for better visibility
             content.style.color = 'red';
             content.style.textAlign = 'right'; // Align text to the right
-            // Add the sort value to the options set
-            content.style.backgroundImage = this.codeTranslateDictionary[value.trim()][PropertyValue];
+            content.style.backgroundImage = backgroundImage;
             content.style.backgroundSize = 'cover';
-            content.style.width = '300';
-            content.style.height = '150'; /* Set the height of the container */
-            content.style.backgroundPosition = 'center'; /* Center the background image */
-            // Add a text shadow to simulate blood droplets effect
+            content.style.width = '300px';  // added 'px' to ensure proper CSS
+            content.style.height = '150px'; // added 'px' to ensure proper CSS
+            content.style.backgroundPosition = 'center'; // Center the background image
             content.style.textShadow = '0 0 5px #800'; // Adjust the color and blur radius as needed
         });
+    
         return this.CastElementsToString(Array.from(elements));
     }
+    
 
-    scraber(): void {
+    scraper(): void {
         this.isLoading = true;
         const urlvalue: string = 'https://www.haaretz.co.il/news/2023-10-12/ty-article-magazine/0000018b-1367-dcc2-a99b-17779a0a0000';
         const classorid: string = '.war-victims-cards-container';
