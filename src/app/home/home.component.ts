@@ -150,21 +150,27 @@ export class HomeComponent implements OnInit,AfterViewInit  {
         // Filter elements based on the search query and sort value
         const filteringQuery = Array.from(_elements).filter((element: any) => {
             const filterValue = element.getAttribute('data-filter');
-            const sort = this.selectedOption === 'All' ?
-                this.selectedOption : this.codeTranslateDictionary[element.getAttribute('data-sort').trim()].combo;
-
-            return filterValue.includes(this.searchQuery) && sort === this.selectedOption;
+            const dataSort = element.getAttribute('data-sort');
+            
+            // Ensure data-sort attribute exists before accessing combo
+            if (dataSort && this.codeTranslateDictionary[dataSort.trim()]) {
+                const sort = this.selectedOption === 'All' ?
+                    this.selectedOption : this.codeTranslateDictionary[dataSort.trim()].combo;
+    
+                return filterValue.includes(this.searchQuery) && sort === this.selectedOption;
+            } else {
+                return false; // Filter out elements without valid data-sort or combo
+            }
         });
-
-//
+    
         const records = this.addPropertyToElement(this.CastElementsToString(filteringQuery), 'background-image', 'image');
         const tblRecords = this.convertToTable(records);
         this.filteredElements = this.sanitizer.bypassSecurityTrustHtml(tblRecords);
-
-        //count filtered list
-        this.victimsCount = filteringQuery.length;;
+    
+        // Update filtered count
+        this.victimsCount = filteringQuery.length;
     }
-
+    
     generateOptions(htmlString: string): void {
         try {
           // Create a new DOM parser
